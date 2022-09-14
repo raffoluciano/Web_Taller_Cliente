@@ -1,33 +1,32 @@
 body{
     background-color: #d8d8d8;
     font-family: 'Quicksand', sans-serif;
-    color: black;
+    width: 100%;
 }
 
-.navbar{
+header{
     background-color: #333533;
-}
+    width: 100%;
 
-.carrito{
-    margin-left: 188%;
-    width: 5%;
-    position: relative;
-}
-
-.usuario{
-    margin-left: 93%;
-    width: 5%;
-    position: relative;
-}
-
-.logo{
-    width: 18%;
-    position: relative;
 }
 
 .nav-link{
     color: white;
-    position: relative;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+.carrito{
+    margin-left: 180%;
+    width: 8%;
+}
+
+.usuario{
+    margin-left: 90%;
+    width: 8%;
+}
+
+.logo{
+    width: 15%
 }
 
 .carousel-inner{
@@ -43,8 +42,9 @@ body{
 .card{
     margin-top: 2%;
     margin-right: 5%;
-    background-color: transparent;
-    color: white;
+    background-color: white;
+    color: black;
+    width: 20%;
 }
 
 footer{
@@ -58,31 +58,48 @@ footer{
     margin: 5%;
 }
 
-.alg-hoteles{
+.hotels{
     color: white;
     font-size: small;
     margin-left: -3%;
 }
 
 .container{
-    margin-top: 2%;   
+    padding: 3%;
 }
 
 .container1{
-    margin-top: 2%;
+    padding: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
-button{
-    margin-top: 3%;
-    margin-left: 45%;
+.card-packages{
+    margin-top: 2%;
+    margin-right: 5%;
+    background-color: white;
+    color: black;
+    width: 25%;
 }
 
-.col-5{
-    margin-top: 2%;
-    margin-left: 5%;
+.card-title1{
+    font-size: small;
+}
+
+
+.destinos-inicio{
+    font-size: small;
+}
+
+.ofertas-inicio{
+    font-size: small;
+}
+
+.col{
     color: white;
+    font-size: small;
+    margin-left: -3%;
 }
-
 
 .btn{
     background-color: white;
