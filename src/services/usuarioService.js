@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = "http://localhost:4000/User/users";
+const url = "http://localhost:4000/user/users";
 
 // export const getUsuarios = async () => {
 //     const resp = await fetch(url)
@@ -13,3 +13,5 @@ export const getUsuarios = async () => {
      const response = await axios.get(url)
      return response.data
 }
+
+
