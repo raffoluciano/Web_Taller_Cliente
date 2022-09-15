@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { getUsuarios } from './services/usuarioService';
-import { getPackage, getPackageById } from './utils/getdata';
+import { getPackage, getPackageById, getCountry, getUser } from './utils/getdata';
 import Navbar from './components/ui/navbar';
 import Footer from './components/ui/footer';
 import Home from './components/Home';
 import Packages from './components/Packages';
+import { useParams } from 'react-router-dom';
 
 function App() {
 
   const [users, setUsers] = useState([]);
-  //para probar traer la info de paquetes cambiar el getUsuarios de la linea
-  //16 por "getPackage"
   useEffect(() => {
-    getUsuarios().then(us => setUsers(us));
+    getUser().then(us => setUsers(us));
   },[])
   
 
@@ -39,20 +37,35 @@ function App() {
 
 export default App;
 
+//EJ PARA PROBAR TRAE LOS DATOS DE LAS FUNCIONES SIN PASAR PARAMETROS
+/*
+const [users, setUsers] = useState([]);
+  useEffect(() => {
+    [nombre de la funcion]().then(us => setUsers(us));
+  },[])
 
-/*const [packages, setPackage] = useState([]);
+  Lo de abajo queda igual
+*/
+
+//EJ PARA PROBAR SI TRAE LOS DATOS DE LAS FUNCIONES QUE RECIBEN UN PARAMETRO ID
+
+/*
+const {id} = useParams();
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getPackage().then(pac => setPackage(pac));
+    const consultarApi = async() => {
+      setUsers (await getPackageById(id));
+    }
+    consultarApi();
   },[])
-  
-  console.log(packages)
-  
-  
+
+
   <ul>
-        {
-          packages.map(pack => (
-            <li key={pack.id}>{pack.nombre}</li>)
-          )
-        }
-      </ul>*/
+          {
+            users.map(user => (
+              <li key={user.id}>{user.descripcion}</li>) //cambiar el campo dni a id, y el otro que se quiera mostrar p/prueba
+            )
+          }
+  </ul>
+*/
