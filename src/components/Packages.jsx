@@ -1,7 +1,18 @@
 import '../App.css';
 import logo from '../../public/logoAHORA.png';
+import { createLocation } from '../utils/createdata'
+
 
 const Packages = () => {
+
+    const createLocations = () => {
+        const destino = {
+            nombre: "Prueba2"
+         }
+
+        createLocation(destino).then(resp => console.log(resp));
+    }
+
     return(
         <div className="App">
             <div class="container">
@@ -15,6 +26,7 @@ const Packages = () => {
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </div>
+                <button onClick={ createLocations } className='btn btn-primary mt-1'> asas</button>
                 <div class="container">
                     <div class="row row-cols-4">
                     <div class="card-packages">
