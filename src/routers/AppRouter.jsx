@@ -5,13 +5,18 @@ import { useParams } from 'react-router-dom';
 import Navbar from '../components/ui/navbar';
 import Footer from '../components/ui/footer';
 import Packages from '../components/Packages';
+import Package from '../components/Package';
+import Home from '../components/Home';
+import Contact from '../components/Contact';
+import Sales from '../components/Sales';
+
 
 const AppRouter = () => {
 
     return (
         <div className="AppRouter">
             <Navbar/>
-            <Packages/>
+            <Sales/>
             <Footer/>
         </div>
     );

@@ -86,7 +86,6 @@ footer{
     font-size: small;
 }
 
-
 .destinos-inicio{
     font-size: small;
 }
@@ -106,6 +105,20 @@ footer{
     color: black;
 }
 
+.dropdown-toggle{
+    background-color:#333533;
+    color: white;
+    width: 12%;
+}
+
+.dropdown-menu{
+    background-color:#333533;
+}
+
+.dropdown-item{
+    color: white;
+}
+
 .card-paq{
     margin-right: 5%;
     background-color: white;
@@ -116,30 +129,42 @@ footer{
     margin-left: 40%;
 }
 
+.title{
+    color: white;
+    font-size: small;
+}
+
+.btn-buy{
+    border-radius: 15%;
+    background-color: green;
+    border: green;
+    width: 23%;
+    height: 7%;
+    color: white;
+    font-weight: bold;
+    margin-left: 80%;
+    margin-top: 20%;
+}
+
 .page-link{
     color: black;
 }
 
-.titulo-contacto{
-    color: white;
-}
-
-.instagram{
+.social-media{
     width: 8%;
+    margin-right: 5%;    
 }
 
-.facebook{
-    width: 6%;
+.contact{
+    font-size: medium;
 }
 
-.correo{
-    width: 6%;
-}
-
-.titulo-paquete{
+.btn-send{
+    border-radius: 15%;
+    background-color: #333533;
+    border: #333533;
+    width: 20%;
+    height: 15%;
     color: white;
-}
-
-.detalle{
-    text-align: center;
+    margin-left: 80%;   
 }
