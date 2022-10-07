@@ -16,7 +16,7 @@ const AppRouter = () => {
     return (
         <div className="AppRouter">
             <Navbar/>
-            <Sales/>
+            <Packages/>
             <Footer/>
         </div>
     );

@@ -90,26 +90,25 @@ const getRoles = async() => {
     return response.data
 };
 
-const getRoleById = async(id) => {
-    //VER porque trae el arreglo vacio
-    const url = `http://localhost:4000/role/${id}`
-    const response = await axios.get(url)
-    return response.data
-};
-/*
-//NO ANDA URL, ver porque
-const getTypePaq = async() => {
-    const url = `http://localhost:4000/type_package/type`
+const getRoleById = async(dni_usuario) => {
+    const url = `http://localhost:4000/role/${dni_usuario}`
     const response = await axios.get(url)
     return response.data
 };
 
-//NO ANDA URL, ver porque
-const getTypePaqById = async(id) => {
-    const url = `http://localhost:4000/type_package/${id}`
+
+const getTypePaq = async() => {
+    const url = `http://localhost:4000/type/type`
     const response = await axios.get(url)
     return response.data
-};*/
+};
+
+
+const getTypePaqById = async(id) => {
+    const url = `http://localhost:4000/type/${id}`
+    const response = await axios.get(url)
+    return response.data
+};
 
 const getTransport = async() => {
     const url = `http://localhost:4000/meanOfTransport/meanOfTransport`
