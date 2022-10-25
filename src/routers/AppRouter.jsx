@@ -9,6 +9,7 @@ import Package from '../components/Package';
 import Home from '../components/Home';
 import Contact from '../components/Contact';
 import Sales from '../components/Sales';
+import Login from '../components/Login';
 
 
 const AppRouter = () => {
@@ -16,7 +17,7 @@ const AppRouter = () => {
     return (
         <div className="AppRouter">
             <Navbar/>
-            <Packages/>
+            <Package/>
             <Footer/>
         </div>
     );

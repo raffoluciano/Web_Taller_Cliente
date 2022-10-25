@@ -14,9 +14,9 @@ const Packages = () => {
                     Filtrar
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <li><a class="dropdown-item" href="#">Destino</a></li>
+                    <li><a class="dropdown-item" href="#">Tipo</a></li>
+                    <li><a class="dropdown-item" href="#">Precio</a></li>
                     </ul>
                 </div>
                 
