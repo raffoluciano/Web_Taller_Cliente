@@ -8,27 +8,27 @@ const Packages = () => {
 
     return(
         <div className="App">
-            <div class="container">
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="container">
+                <div className="dropdown">
+                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     Filtrar
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Destino</a></li>
-                    <li><a class="dropdown-item" href="#">Tipo</a></li>
-                    <li><a class="dropdown-item" href="#">Precio</a></li>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a className="dropdown-item" href="#">Destino</a></li>
+                    <li><a className="dropdown-item" href="#">Tipo</a></li>
+                    <li><a className="dropdown-item" href="#">Precio</a></li>
                     </ul>
                 </div>
                 
-                <div class="container">
-                    <div class="row row-cols-4">
-                    <div class="card-packages">
-                        <img src={logo} class="card-img-top" alt="..."/>
-                        <div class="card-body">
-                        <h6 class="card-title">Nombre del Paquete</h6>
-                        <h6 class="card-title1">Destino</h6>
-                        <h6 class="card-title1">Duración</h6>
-                        <h6 class="card-title-price">Precio</h6>
+                <div className="container">
+                    <div className="row row-cols-4">
+                    <div className="card-packages">
+                        <img src={logo} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                        <h6 className="card-title">Nombre del Paquete</h6>
+                        <h6 className="card-title1">Destino</h6>
+                        <h6 className="card-title1">Duración</h6>
+                        <h6 className="card-title-price">Precio</h6>
                         </div>
                     </div>
                     </div>

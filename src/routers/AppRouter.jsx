@@ -10,14 +10,21 @@ import Home from '../components/Home';
 import Contact from '../components/Contact';
 import Sales from '../components/Sales';
 import Login from '../components/Login';
-
+import { Routes, Route } from "react-router-dom";
+import { PackagePage } from "../Pages/PackagePage";
 
 const AppRouter = () => {
 
     return (
-        <div className="AppRouter">
+      <div className="AppRouter">
             <Navbar/>
-            <Package/>
+
+            <Routes>
+              <Route path="/home" element={<Home />}/>
+              <Route path="/package" element={<PackagePage />}/>
+              <Route path="*" element={<Home />} />
+            </Routes> 
+
             <Footer/>
         </div>
     );

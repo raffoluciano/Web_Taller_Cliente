@@ -4,49 +4,49 @@ import logo from '../../public/logoAHORA.png';
 const Home = () => {
     return(
         <div className="App">
-      <div class="container">
-        <h6 class="hotels">Algunos de nuestros hoteles</h6>
-        <hr class="hotels"/>
-        <div class="row row-cols-4">
-          <div class="card">
-            <img src={logo} class="card-img-top" alt="..."></img>
-            <div class="card-body">
-              <h6 class="card-title">Nombre del Hotel</h6>
+      <div className="container">
+        <h6 className="hotels">Algunos de nuestros hoteles</h6>
+        <hr className="hotels"/>
+        <div className="row row-cols-4">
+          <div className="card">
+            <img src={logo} className="card-img-top" alt="..."></img>
+            <div className="card-body">
+              <h6 className="card-title">Nombre del Hotel</h6>
             </div>
           </div>
           </div>
       </div>
-      <div class="container1">
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src={logo} class="imagen-carrusel" alt="..."/>
+      <div className="container1">
+      <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img src={logo} className="imagen-carrusel" alt="..."/>
           </div>
           </div>
         </div>
       </div>
       <div className="container">
-      <div class="row">
-      <div class="col">
-        <h6 class="destinos-inicio">Destinos más visitados</h6>
-        <hr class="destinos-inicio"/>
-        <div class="col-6 col-md-4">
-        <div class="card1" href="./ofertas.html">
-          <img src={logo} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h6 class="card-title">Nombre del destino</h6>
+      <div className="row">
+      <div className="col">
+        <h6 className="destinos-inicio">Destinos más visitados</h6>
+        <hr className="destinos-inicio"/>
+        <div className="col-6 col-md-4">
+        <div className="card1" href="./ofertas.html">
+          <img src={logo} className="card-img-top" alt="..."/>
+          <div className="card-body">
+            <h6 className="card-title">Nombre del destino</h6>
           </div>
         </div>
         </div>
       </div>
-      <div class="col">
-        <h6 class="ofertas-inicio">Visitá nuestras ofertas</h6>
-        <hr class="hr-ofertas-inicio"/>
-        <div class="col-6 col-md-4">
-        <div class="card1" href="./ofertas.html">
-          <img src={logo} class="card-img-top" alt="..."/>
-          <div class="card-body">
-            <h6 class="card-title">Nombre del destino </h6>
+      <div className="col">
+        <h6 className="ofertas-inicio">Visitá nuestras ofertas</h6>
+        <hr className="hr-ofertas-inicio"/>
+        <div className="col-6 col-md-4">
+        <div className="card1" href="./ofertas.html">
+          <img src={logo} className="card-img-top" alt="..."/>
+          <div className="card-body">
+            <h6 className="card-title">Nombre del destino </h6>
           </div>
         </div>
       </div>
