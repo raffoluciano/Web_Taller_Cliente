@@ -8,7 +8,6 @@ import Packages from '../components/Packages';
 import Package from '../components/Package';
 import Home from '../components/Home';
 import Contact from '../components/Contact';
-import Sales from '../components/Sales';
 import Login from '../components/Login';
 import { Routes, Route } from "react-router-dom";
 import { PackagePage } from "../Pages/PackagePage";

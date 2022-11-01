@@ -14,7 +14,6 @@ const Navbar = () =>{
               <img className="logo" src={logo}></img>
                <Link className="nav-link" to="/home">Home</Link> 
                <Link className="nav-link" to="/package">Paquetes</Link>
-              <a className="nav-link" href="ofertas.html">Ofertas</a>
               <a className="nav-link" href="contacto.html">Contacto</a>
               <a className="nav-link" href="#"><img src={shopping} className="carrito"/></a>
               <a className="nav-link" href="#"><img src={user} className="usuario"/></a>
