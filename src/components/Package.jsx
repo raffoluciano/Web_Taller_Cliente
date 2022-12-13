@@ -1,20 +1,18 @@
 import '../App.css';
 import logo from '../../public/logoAHORA.png';
 
-const Package = () => {
+const PackageInfo = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id }) => {
     return(
-        <div className="App">
-            <div className="container">
-                <h6 className="title">Paquete</h6>
-                <hr className="title"/>
-                <div className="row justify-content-evenly">
-                    <div className="col-4">
+        <div className="container">
+            <h6 className="title">Paquete</h6>
+            <hr className="title"/>
+            <div className="row justify-content-evenly">
+                <div className="col-4">
                     <img src={logo} className="img-fluid" alt="..."/>
                     <img src={logo} className="img-fluid" alt="..."/>
                     <img src={logo} className="img-fluid" alt="..."/>
-                    
-                    </div>
-                    <div className="col-4">
+                </div>
+                <div className="col-4">
                     <h6 className="detalle">Nombre del paquete</h6>
                     <h6 className="detalle">Nombre del paquete</h6>
                     <h6 className="detalle">Nombre del paquete</h6>
@@ -26,11 +24,11 @@ const Package = () => {
                     <h6 className="detalle">Nombre del paquete</h6>
                     <h6 className="detalle">Nombre del paquete</h6>
                     <button className="btn-buy" type="button">Comprar</button>
-                    </div>
-                </div>
                 </div>
             </div>
+        </div>
+
     );
 }
 
-export default Package;
+export default PackageInfo;

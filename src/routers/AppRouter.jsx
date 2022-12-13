@@ -10,7 +10,6 @@ import Home from '../components/Home';
 import Contact from '../components/Contact';
 import Login from '../components/Login';
 import { Routes, Route } from "react-router-dom";
-import { PackagePage } from "../Pages/PackagePage";
 
 const AppRouter = () => {
 
@@ -20,7 +19,7 @@ const AppRouter = () => {
 
             <Routes>
               <Route path="/home" element={<Home />}/>
-              <Route path="/package" element={<PackagePage />}/>
+              <Route path="/packages" element={<Packages />}/>
               <Route path="*" element={<Home />} />
             </Routes> 
 
