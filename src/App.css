@@ -79,11 +79,14 @@ footer{
     margin-right: 5%;
     background-color: white;
     color: black;
-    width: 25%;
 }
 
 .card-title1{
     font-size: small;
+}
+
+.card-title{
+    font-size: x-large;
 }
 
 .destinos-inicio{

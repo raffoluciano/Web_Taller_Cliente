@@ -20,6 +20,7 @@ const AppRouter = () => {
             <Routes>
               <Route path="/home" element={<Home />}/>
               <Route path="/packages" element={<Packages />}/>
+              <Route path="/package:id" element={<Package />}/>
               <Route path="*" element={<Home />} />
             </Routes> 
 

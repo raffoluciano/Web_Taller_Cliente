@@ -16,18 +16,31 @@ const Packages = () => {
     }, [])
     
     return(
-        <div className="App">
-                <div className='row'>
-                    {
-                        packages.map( (element) => (                    
-                            <div className="col mx-auto" key={ element.id }>
-                                    <PackageCard { ...element }/>
-                            </div>
-                        ))
-                    }
-                </div>        
+        <>
+    <div className='container'>
+        <div className="dropdown">
+                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filtrar
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a className="dropdown-item" href="#">Destino</a></li>
+                    <li><a className="dropdown-item" href="#">Tipo</a></li>
+                    <li><a className="dropdown-item" href="#">Precio</a></li>
+                    </ul>
+                </div>
+                </div>
+        <div className='container'>        
+        <div className="row row-cols-3">    
+            {
+                packages.map( (element) => (                    
+                        <div>
+                                <PackageCard { ...element }/>
+                        </div>
+                    ))
+             }
         </div>
-
+    </div>
+    </>
     );
 }
 

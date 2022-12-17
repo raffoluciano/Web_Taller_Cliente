@@ -1,33 +1,35 @@
+import logo from '../../public/logoAHORA.png';
 
 export const PackageInfoModal = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id }) => {
   return (
     <>
-        <button type="button" className="btn btn-primary ms-1 me-1 mb-1" data-bs-toggle="modal" data-bs-target={`#modal${id}`}>
-        Mas info!!!
-        </button>
-
-        <div className="modal fade" id={`modal${id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div className="modal-dialog">
-            <div className="modal-content">
-            <div className="modal-header">
-                <h1 className="modal-title fs-5" id="staticBackdropLabel">{ nombre }</h1>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div className="modal-body">
-                <p> <b> Cupos: </b>  { cupos } </p>
-                <p> <b> Precio: </b> $ { precio } </p>
-                <p> <b> Duracion: </b> { duracion }</p>
-                <p> <b> Comienzo: </b> { comienzo }</p>
-                <p> <b> Salida: </b> { salida }</p>
-                <p> <b> Fin: </b> { fin }</p>
-            </div>
-            <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Understood</button>
-            </div>
-            </div>
-        </div>
-        </div>
+        <div className="App" id={`${id}`}>
+        <div className="container">
+                <h6 className="title">Paquete</h6>
+                <hr className="title"/>
+                <div className="row justify-content-evenly">
+                    <div className="col-4">
+                    <img src={logo} className="img-fluid" alt="..."/>
+                    <img src={logo} className="img-fluid" alt="..."/>
+                    <img src={logo} className="img-fluid" alt="..."/>
+                    
+                    </div>
+                    <div className="col-4">
+                    <h6 className="detalle">{ nombre }</h6>
+                    <h6 className="detalle">Duración: { duracion } días</h6>
+                    <h6 className="detalle">Comienzo: { comienzo }</h6>
+                    <h6 className="detalle">Nombre del paquete</h6>
+                    <p className="detalle-parrafo">Excursiones: excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1</p>
+                    <p className="detalle-parrafo">Hoteles: hotel1, hotel1, hotel1, hotel1, hotel1, hotel1,hotel1</p>
+                    <p className="detalle">Transportes: transporte1, transporte1, transporte1, transporte1, transporte1</p>
+                    <h6 className="detalle">Nombre del paquete</h6>
+                    <h6 className="detalle">Nombre del paquete</h6>
+                    <h6 className="detalle">Nombre del paquete</h6>
+                    <button className="btn-buy" type="button">Comprar</button>
+                    </div>
+                </div>
+                </div>
+                </div>
     </>
     
   )
