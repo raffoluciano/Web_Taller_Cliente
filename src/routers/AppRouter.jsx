@@ -31,6 +31,7 @@ const AppRouter = () => {
 
 export default AppRouter;
 
+
 //EJ PARA PROBAR TRAE LOS DATOS DE LAS FUNCIONES SIN PASAR PARAMETROS
 /*
 const [users, setUsers] = useState([]);

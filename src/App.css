@@ -32,11 +32,7 @@ header{
 .carousel-inner{
     position: relative;
     margin-top: 5%;
-    width: 40%;
-}
-
-.imagen-carrusel{
-    width: 50%;
+    align-items: center;
 }
 
 .card{
@@ -44,7 +40,6 @@ header{
     margin-right: 5%;
     background-color: white;
     color: black;
-    width: 20%;
 }
 
 footer{
@@ -239,5 +234,3 @@ footer{
   .para-2 a {
     color: #49c1a2;
   }
-  
-  

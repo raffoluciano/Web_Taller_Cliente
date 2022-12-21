@@ -1,59 +1,75 @@
-import '../App.css';
-import logo from '../../public/logoAHORA.png';
+import React, { useEffect, useState } from 'react';
+import { HotelCard } from './HotelCard';
+import { DestinyCard } from './DestinyCard';
+import { getHotel, getDestiny } from '../utils/getdata';
+import foto1 from '../../public/descarga.jpg';
 
-const Home = () => {
-    return(
-        <div className="App">
+
+export const Home = () => {
+
+  const [hotel, setHotel] = useState([]);
+  
+  useEffect(() => {
+      getHotel().then( data => {
+          setHotel(data);
+      })
+      .catch( error => console.log(error));
+  }, [])
+
+  const [destiny, setDestiny] = useState([]);
+
+  useEffect(() => {
+      getDestiny().then( data => {
+          setDestiny(data);
+      })
+      .catch( error => console.log(error));
+  }, [])
+    
+    if (hotel.length > 4) {
+      hotel.length = 4;
+    }
+
+    if (destiny.length > 4) {
+      destiny.length = 4;
+    }
+  return(
+    <>
       <div className="container">
         <h6 className="hotels">Algunos de nuestros hoteles</h6>
         <hr className="hotels"/>
         <div className="row row-cols-4">
-          <div className="card">
-            <img src={logo} className="card-img-top" alt="..."></img>
-            <div className="card-body">
-              <h6 className="card-title">Nombre del Hotel</h6>
-            </div>
-          </div>
+          {
+                hotel.map( (element) => (                    
+                        <div>
+                            <HotelCard { ...element }/>
+                        </div>
+                    ))
+             }
           </div>
       </div>
       <div className="container1">
       <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={logo} className="imagen-carrusel" alt="..."/>
+            <img src={foto1} className="imagen-carrusel" alt="..."/>
           </div>
           </div>
         </div>
       </div>
       <div className="container">
-      <div className="row">
-      <div className="col">
-        <h6 className="destinos-inicio">Destinos más visitados</h6>
-        <hr className="destinos-inicio"/>
-        <div className="col-6 col-md-4">
-        <div className="card1" href="./ofertas.html">
-          <img src={logo} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h6 className="card-title">Nombre del destino</h6>
+        <h6 className="hotels">Algunos de nuestros destinos</h6>
+        <hr className="hotels"/>
+        <div className="row row-cols-4">
+          {
+                destiny.map( (element) => (                    
+                        <div>
+                            <DestinyCard { ...element }/>
+                        </div>
+                    ))
+             }
           </div>
-        </div>
-        </div>
       </div>
-      <div className="col">
-        <h6 className="ofertas-inicio">Visitá nuestras ofertas</h6>
-        <hr className="hr-ofertas-inicio"/>
-        <div className="col-6 col-md-4">
-        <div className="card1" href="./ofertas.html">
-          <img src={logo} className="card-img-top" alt="..."/>
-          <div className="card-body">
-            <h6 className="card-title">Nombre del destino </h6>
-          </div>
-        </div>
-      </div>
-        </div>
-    </div>
-    </div>
-    </div>
+    </>
     );
 }
 

@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { getPackage } from '../utils/getdata';
+import React, { useEffect, useState } from 'react'
 import { PackageCard } from '../components/PackageCard';
+import { getPackage } from '../utils/getdata';
 
 
-const Packages = () => {
+export const Packages = () => {
 
     const [packages, setPackages] = useState([]);
 
@@ -15,8 +14,10 @@ const Packages = () => {
         .catch( error => console.log(error));
     }, [])
     
-    return(
-        <>
+
+
+  return (
+    <>
     <div className='container'>
         <div className="dropdown">
                     <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,7 +42,6 @@ const Packages = () => {
         </div>
     </div>
     </>
-    );
+  )
 }
-
 export default Packages;
