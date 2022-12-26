@@ -14,7 +14,7 @@ const Navbar = () =>{
               <img className="logo" src={logo}></img>
                <Link className="nav-link" to="/home">Home</Link> 
                <Link className="nav-link" to="/packages">Paquetes</Link>
-              <a className="nav-link" href="contacto.html">Contacto</a>
+               <Link className="nav-link" to="/contact">Contacto</Link>
               <a className="nav-link" href="#"><img src={shopping} className="carrito"/></a>
               <a className="nav-link" href="#"><img src={user} className="usuario"/></a>
             </div>

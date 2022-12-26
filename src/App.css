@@ -54,8 +54,8 @@ footer{
 }
 
 .hotels{
-    color: white;
-    font-size: small;
+    color: black;
+    font-size: medium;
     margin-left: -3%;
 }
 
@@ -128,8 +128,8 @@ footer{
 }
 
 .title{
-    color: white;
-    font-size: small;
+    color: black;
+    font-size: medium;
 }
 
 .btn-buy{

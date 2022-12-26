@@ -22,6 +22,7 @@ const AppRouter = () => {
               <Route path="/packages" element={<Packages />}/>
               <Route path="/package:id" element={<Package />}/>
               <Route path="*" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes> 
 
             <Footer/>
