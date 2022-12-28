@@ -9,7 +9,9 @@ import Package from '../components/Package';
 import Home from '../components/Home';
 import Contact from '../components/Contact';
 import Login from '../components/Login';
+import Cart from '../components/Cart';
 import { Routes, Route } from "react-router-dom";
+
 
 const AppRouter = () => {
 
@@ -21,8 +23,10 @@ const AppRouter = () => {
               <Route path="/home" element={<Home />}/>
               <Route path="/packages" element={<Packages />}/>
               <Route path="/package:id" element={<Package />}/>
+              <Route path="/contact" element={<Contact />}/>
+              <Route path="/cart" element={<Cart />}/>
+              <Route path="/login" element={<Login />}/>
               <Route path="*" element={<Home />} />
-              <Route path="/contact" element={<Contact />} />
             </Routes> 
 
             <Footer/>

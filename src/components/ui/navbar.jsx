@@ -11,12 +11,15 @@ const Navbar = () =>{
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <img className="logo" src={logo}></img>
+              <img className="logo" src={logo}/>
                <Link className="nav-link" to="/home">Home</Link> 
                <Link className="nav-link" to="/packages">Paquetes</Link>
                <Link className="nav-link" to="/contact">Contacto</Link>
-              <a className="nav-link" href="#"><img src={shopping} className="carrito"/></a>
-              <a className="nav-link" href="#"><img src={user} className="usuario"/></a>
+               <div class="buscar">
+                <input type="text" placeholder="Buscar" required />
+              </div>
+               <Link className="nav-link" to="/cart"><img src={shopping} className="carrito"/></Link>
+               <Link className="nav-link" to="/login"><img src={user} className="usuario"/></Link>
             </div>
           </div>
         </div>

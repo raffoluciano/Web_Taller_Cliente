@@ -27,19 +27,21 @@ const Login = () => {
     PARA CREAR LA CUENTA
     */
     <div className='App'>
+    <div className='container'>
     <div className="login-box">
-      <h3>Login</h3>
+      <h3>Registrarse</h3>
       <form>
         <label>Email</label>
         <input type="email" placeholder="" />
-        <label>Password</label>
+        <label>Contraseña</label>
         <input type="password" placeholder="" />
-        <input type="button" value="Submit" />
+        <input type="button" value="Registrarse" />
       </form>
     </div>
     <p className="para-2">
       Not have an account? <a href="signup.html">Sign Up Here</a>
     </p>
+    </div>
     </div>
         );
 }

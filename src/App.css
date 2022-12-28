@@ -15,14 +15,30 @@ header{
     margin-top: 2%;
     margin-left: 2%;
 }
+
+.buscar {
+    position: relative;
+    margin-top: 32px;
+    margin-left: 250px;
+  }
+  
+  .buscar input {
+    width: 240px;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #222;
+    border: solid #333533;
+    border-radius: 30px;
+  }
+
 .carrito{
-    margin-left: 180%;
-    width: 8%;
+    width: 23%;
+    margin-left: 100px;
 }
 
 .usuario{
-    margin-left: 90%;
-    width: 8%;
+    width: 27%;
 }
 
 .logo{
@@ -54,8 +70,8 @@ footer{
 }
 
 .hotels{
-    color: black;
-    font-size: medium;
+    color: white;
+    font-size: small;
     margin-left: -3%;
 }
 
@@ -128,11 +144,11 @@ footer{
 }
 
 .title{
-    color: black;
-    font-size: medium;
+    color: white;
+    font-size: small;
 }
 
-.btn-buy{
+.btn-success{
     border-radius: 15%;
     background-color: green;
     border: green;
@@ -234,3 +250,13 @@ footer{
   .para-2 a {
     color: #49c1a2;
   }
+
+  .img-fluid {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  
+  

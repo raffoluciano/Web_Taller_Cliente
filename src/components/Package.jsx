@@ -26,7 +26,7 @@ const Package = () => {
                     <p className="detalle">Transportes: transporte1, transporte1, transporte1, transporte1, transporte1</p>
                     <h6 className="detalle"> cupos </h6>
                     <h6 className="detalle"><b>$ precio</b></h6>
-                    <button className="btn-buy" type="button">Comprar</button>
+                    <button type="button" class="btn btn-success">Comprar</button>
                     </div>
                 </div>
                 </div>
