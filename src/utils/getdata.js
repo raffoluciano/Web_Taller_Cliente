@@ -76,6 +76,13 @@ const getPackageById = async(id) => {
     return response.data
 };
 
+const getPackageByDestiny = async(nombre) => {
+    const url = `http://localhost:4000/package/destino/${nombre}`
+    const response = await axios.get(url)
+    return response.data
+}
+
+
 const getPromotion = async() => {
     //VER si es necesario
     const url = `http://localhost:4000/promotion/promotion`
@@ -149,6 +156,7 @@ export {
     getLocationById,
     getPackage,
     getPackageById,
+    getPackageByDestiny,
     getPromotion, 
     getRoles,
     getRoleById,
