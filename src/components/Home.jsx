@@ -35,8 +35,8 @@ export const Home = () => {
   return(
     <>
       <div className="container">
-        <h6 className="hotels">Algunos de nuestros hoteles</h6>
-        <hr className="hotels"/>
+        <h6 className="title">Algunos de nuestros hoteles</h6>
+        <hr className="title"/>
         <div className="row row-cols-4">
           {
                 hotel.map( (element) => (                    
@@ -57,8 +57,8 @@ export const Home = () => {
         </div>
       </div>
       <div className="container">
-        <h6 className="hotels">Algunos de nuestros destinos</h6>
-        <hr className="hotels"/>
+        <h6 className="title">Algunos de nuestros destinos</h6>
+        <hr className="title"/>
         <div className="row row-cols-4">
           {
                 destiny.map( (element) => (                    

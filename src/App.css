@@ -69,12 +69,6 @@ footer{
     margin: 5%;
 }
 
-.hotels{
-    color: white;
-    font-size: small;
-    margin-left: -3%;
-}
-
 .container{
     padding: 3%;
 }
@@ -144,8 +138,9 @@ footer{
 }
 
 .title{
-    color: white;
+    color: black;
     font-size: small;
+    margin-left: -3%;
 }
 
 .btn-success{
