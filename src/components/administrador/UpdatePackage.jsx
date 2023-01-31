@@ -1,4 +1,5 @@
-const UpdatePackage = () => {
+
+const UpdatePackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, descripcion, excursiones, hoteles, activo }) => {
 
     return (
         <>
@@ -10,10 +11,44 @@ const UpdatePackage = () => {
                         <div class="col-5">
                             <label for="inputName" class="form-label">Ingrese ID del paquete que desea actualizar</label>
                             <input class="form-control" id="inputName"/>
-                            <button type="submit" class="btn">Buscar</button>
+                            <div class="row justify-content-end">
+                        </div>
                         </div>
                     </div>
                 </div>
+            <div class="row justify-content-end">
+            <div class="col-4">
+            <button type="button" className="btn btn-primary ms-1 me-1 mb-1" data-bs-toggle="modal" data-bs-target={`#modal${id}`}>
+            Buscar
+            </button>
+            </div>
+            </div>
+            <div className="modal fade" id={`modal${id}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h1 className="modal-title fs-5" id="staticBackdropLabel">{ nombre }</h1>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <p> <b> Cupos: </b>  { cupos } </p>
+                    <p> <b> Precio: </b> $ { precio } </p>
+                    <p> <b> Duracion: </b> { duracion }</p>
+                    <p> <b> Comienzo: </b> { comienzo }</p>
+                    <p> <b> Salida: </b> { salida }</p>
+                    <p> <b> Fin: </b> { fin }</p>
+                    <p> <b> Descripcion: </b> { descripcion }</p>
+                    <p> <b> Excursiones: </b> { excursiones }</p>
+                    <p> <b> Hoteles: </b> { hoteles }</p>
+                    <p> <b> Activo: </b> { activo }</p>
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" className="btn btn-primary">Actualizar</button>
+                </div>
+                </div>
+            </div>
+            </div>
             </div>
         </>
     )

@@ -59,7 +59,7 @@ const createMeanoftransport = async(data) => {
 const createPackage = async(data) => {
 
     console.log(data)
-    const url = `http://localhost:4000/package/package`
+    const url = `http://localhost:4000/add`
     const response = await axios.post(url,data);
     return response.data
 };
