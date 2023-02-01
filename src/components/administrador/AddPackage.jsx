@@ -6,6 +6,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
     const [formData, setFormData] = useState({
         nombre: '',
         destino: '',
+        precio: '',
         comienzo: '',
         fin: '',
         duracion: '',
