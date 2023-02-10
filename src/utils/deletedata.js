@@ -40,7 +40,7 @@ const deleteMeanOfTransport = async(id) => {
 };
 
 const deletePackage = async(id) => {
-    const url = `http://localhost:4000/package/package/${id}`
+    const url = `http://localhost:4000/package/packageAdm/${id}`
     const response = await axios.delete(url)
     return
 }

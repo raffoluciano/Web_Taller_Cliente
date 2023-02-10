@@ -12,8 +12,10 @@ import Login from '../components/Login';
 import Cart from '../components/Cart';
 import { Routes, Route } from "react-router-dom";
 import AddPackage from "../components/administrador/AddPackage";
-import DeletePackage from "../components/administrador/DeletePackage";
 import UpdatePackage from "../components/administrador/UpdatePackage";
+import HomeAdm from "../components/administrador/HomeAdm";
+import PackageAdm from "../components/administrador/PackageAdm";
+
 
 
 const AppRouter = () => {
@@ -30,8 +32,9 @@ const AppRouter = () => {
               <Route path="/cart" element={<Cart />}/>
               <Route path="/login" element={<Login />}/>
               <Route path="/add" element={<AddPackage />} />
-              <Route path="/delete" element={<DeletePackage />} />
               <Route path="/update" element={<UpdatePackage />} />
+              <Route path="/HomeAdm" element={<HomeAdm />}/>
+              <Route path="/packageAdm/:id" element={<PackageAdm />}/>
               <Route path="*" element={<Home />} />
             </Routes> 
 

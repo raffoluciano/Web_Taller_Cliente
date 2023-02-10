@@ -6,7 +6,6 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
     const [formData, setFormData] = useState({
         nombre: '',
         destino: '',
-        precio: '',
         comienzo: '',
         fin: '',
         duracion: '',
@@ -26,15 +25,27 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
 
     const handleSubmit = event => {
         event.preventDefault();
-        createPackage
-        .then(response => response.json())
-        .then(formData => {
-        console.log('Data has been loaded to the database:', formData);
-      })
-      .catch(error => {
-        console.error('Error loading data to the database:', error);
-      });
-      }
+        const myFormatedData = {
+            "nombre": formData.nombre,
+            "destino": formData.destino,
+            "precio": formData.precio,
+            "comienzo": new Date(formData.comienzo),
+            "fin": new Date(formData.fin),
+            "duracion": formData.duracion,
+            "salida": formData.salida,
+            "descripcion": formData.descripcion,
+            "cupos": formData.cupos,
+            "excursiones": formData.excursiones,
+            "hoteles": formData.hoteles
+          }
+          createPackage(myFormatedData)
+            .then(formData => {
+              console.log('Data has been loaded to the database:', formData);
+            })
+            .catch(error => {
+              console.error('Error loading data to the database:', error);
+            });
+        }
     
     return(
         <>
@@ -89,7 +100,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                 </div>
                 <div class="row justify-content-end">
                     <div class="col-4">
-                        <button type="button" onSubmit={ handleSubmit } className="btn btn-primary ms-1 me-1 mb-1" data-bs-toggle="modal" data-bs-target={`#modal${formData.nombre}`}>
+                        <button type="button" onClick={ handleSubmit } className="btn btn-primary ms-1 me-1 mb-1" data-bs-toggle="modal" data-bs-target={`#modal${formData.nombre}`}>
                             Cargar
                         </button>
                     </div>
