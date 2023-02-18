@@ -14,7 +14,7 @@ import { Routes, Route } from "react-router-dom";
 import AddPackage from "../components/administrador/AddPackage";
 import UpdatePackage from "../components/administrador/UpdatePackage";
 import HomeAdm from "../components/administrador/HomeAdm";
-import PackageAdm from "../components/administrador/PackageAdm";
+import DeletePackage from "../components/administrador/DeletePackage";
 
 
 
@@ -32,9 +32,9 @@ const AppRouter = () => {
               <Route path="/cart" element={<Cart />}/>
               <Route path="/login" element={<Login />}/>
               <Route path="/add" element={<AddPackage />} />
-              <Route path="/update" element={<UpdatePackage />} />
+              <Route path="/update/:id" element={<UpdatePackage />} />
               <Route path="/HomeAdm" element={<HomeAdm />}/>
-              <Route path="/packageAdm/:id" element={<PackageAdm />}/>
+              <Route path="/delete/:id" element={<DeletePackage />}/>
               <Route path="*" element={<Home />} />
             </Routes> 
 
