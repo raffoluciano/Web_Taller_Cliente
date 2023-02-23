@@ -13,7 +13,7 @@ export const PackageCardAdm = ({ nombre, cupos, precio, salida, comienzo, duraci
                         <h6 className="card-title1"><b>Duración: </b>{ duracion } días</h6>
                         <h6 className="card-title-price">$ { precio }</h6>
                         </div>  
-              <Link to={`/packageAdm/${id}`}>
+              <Link to={`/delete/${id}`}>
                 <button type="button" className="btn btn-primary ms-1 me-1 mb-1">
                   Ver más
                 </button>
