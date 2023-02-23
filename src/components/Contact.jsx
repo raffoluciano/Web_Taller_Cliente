@@ -23,7 +23,7 @@ const Contact = () => {
                         <button className="btn-send" type="button">Enviar</button>
                     </div>
                     <div className="col-4">
-                        <h7 className="title">Encontranos</h7>
+                        <h6 className="title">Encontranos</h6>
                         <hr className="title"/>
                         <h5 className="contact"><img className="social-media" src={instagram}/>@exploreOK</h5>
                         <h5 className="contact"><img className="social-media" src={facebook}/>Viajes Explore</h5>

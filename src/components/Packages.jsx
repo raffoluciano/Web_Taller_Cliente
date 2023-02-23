@@ -1,20 +1,37 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
+import { getAllPackages } from '../store/slices/package';
 import { getPackage } from '../utils/getdata';
 
 
 export const Packages = () => {
 
-    const [packages, setPackages] = useState([]);
+    // const [packages, setPackages] = useState([]);
+
+    const dispatch = useDispatch();
+    const { packages, isLoading } = useSelector(state => state.package);
 
     useEffect(() => {
-        getPackage().then( data => {
-            setPackages(data);
-        })
-        .catch( error => console.log(error));
-    }, [])
-    
+        // getPackage().then( data => {
+        //     setPackages(data);
+        // })
+        // .catch( error => console.log(error));
 
+       if (packages.length === 0) dispatch(getAllPackages())
+    }, [])
+
+    if(isLoading) return (
+        <div className="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    )
+
+    if (packages.length === 0) return (
+        <div className="alert alert-warning mt-2" role="alert">
+            No se encontro ningun paquete
+        </div>
+    )
 
   return (
     <>
@@ -35,7 +52,7 @@ export const Packages = () => {
             {
                 packages.map( (element) => (                    
                         <div>
-                                <PackageCard { ...element }/>
+                                <PackageCard key={element.id} { ...element }/>
                         </div>
                     ))
              }
