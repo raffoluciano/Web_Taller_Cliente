@@ -1,35 +1,34 @@
 import { color } from '@mui/system';
 import { useState, useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
-import { AuthContext } from '../context/AuthContext';
+import { startCreatingUserWithEmailPassword, startGoogleSignIn, startLoginWithEmailPassword } from '../store/slices/auth/thunks';
+
 
 const Login = () => {
 
-    const {user, setUser } = useContext(AuthContext);
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const navigate = useNavigate();
-
-    // console.log(email,password);
-
+    
     const onLogin = () => {
-      const userLogin = {
-        email,
-        password,
-        rol: 'admin'
-      }
-
       if (!email && !password) return;
 
-      setUser(userLogin);
-      navigate('/');
-
+      dispatch( startLoginWithEmailPassword({ email, password }) );
     }
 
-    console.log(user);
+    const onLoginWithGoogle = () => {
+      dispatch(startGoogleSignIn());
+    }
+
+    const onRegister = () => {
+      if (!email && !password) return;
+
+      dispatch( startCreatingUserWithEmailPassword(formState) );
+      
+    }
 
     return(
         /*<div className='container'>
@@ -66,7 +65,8 @@ const Login = () => {
         <label>Contraseña</label>
         <input type="password" placeholder="" value={password} onChange={e => setPassword(e.target.value)}/>
         <input type="button" value="Ingresar" style={{backgroundColor: '#C1D6FC'}} onClick={onLogin}/>
-        <input type="button" value="Registrarse" style={{ marginBottom: 2 }}/>
+        <input type="button" value="Ingresar con google" style={{ backgroundColor: '#fa8072' }} onClick={onLoginWithGoogle}/>
+        <input type="button" value="Registrarse" style={{ marginBottom: 2 }} onClick={onRegister}/>
       </form>
     </div>
     <p className="para-2">

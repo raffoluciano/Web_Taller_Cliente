@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from 'react';
 import { getPackage, getPackageById, getCountry, getUser } from '../utils/getdata';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import Navbar from '../components/ui/navbar';
 import Footer from '../components/ui/footer';
 import Packages from '../components/Packages';
@@ -15,31 +15,72 @@ import AddPackage from "../components/administrador/AddPackage";
 import UpdatePackage from "../components/administrador/UpdatePackage";
 import HomeAdm from "../components/administrador/HomeAdm";
 import DeletePackage from "../components/administrador/DeletePackage";
+import { useCheckAuth } from "../auth/useCheckAuth";
+
 
 
 
 const AppRouter = () => {
 
+  const status = useCheckAuth();
+
+  if ( status === 'checking' ) {
+    return <h1>Cargando</h1>
+  }
+
     return (
-      <div className="AppRouter">
-            <Navbar/>
+      <>
+        {
+          (status === 'authenticated')
+          ? (
+              <div className="AppRouter">
+                <Navbar/>
 
-            <Routes>
-              <Route path="/home" element={<Home />}/>
-              <Route path="/packages" element={<Packages />}/>
-              <Route path="/package/:id" element={<Package />}/>
-              <Route path="/contact" element={<Contact />}/>
-              <Route path="/cart" element={<Cart />}/>
-              <Route path="/login" element={<Login />}/>
-              <Route path="/add" element={<AddPackage />} />
-              <Route path="/update/:id" element={<UpdatePackage />} />
-              <Route path="/HomeAdm" element={<HomeAdm />}/>
-              <Route path="/delete/:id" element={<DeletePackage />}/>
-              <Route path="*" element={<Home />} />
-            </Routes> 
+                <Routes>
+                  <Route path="/home" element={<Home />}/>
+                  <Route path="/packages" element={<Packages />}/>
+                  <Route path="/package/:id" element={<Package />}/>
+                  <Route path="/contact" element={<Contact />}/>
+                  <Route path="/cart" element={<Cart />}/>
+                  {/* <Route path="/login" element={<Login />}/> */}
+                  <Route path="/add" element={<AddPackage />} />
+                  <Route path="/update/:id" element={<UpdatePackage />} />
+                  <Route path="/HomeAdm" element={<HomeAdm />}/>
+                  <Route path="/delete/:id" element={<DeletePackage />}/>
+                  <Route path="*" element={<Home />} />
+                </Routes> 
 
-            <Footer/>
-        </div>
+                <Footer/>
+            </div>
+          )
+          : ( <Routes>
+                <Route path="/*" element={ <Login /> } />
+              </Routes>   
+          )
+        }
+
+      </>
+      
+      
+      // <div className="AppRouter">
+      //       <Navbar/>
+
+      //       <Routes>
+      //         <Route path="/home" element={<Home />}/>
+      //         <Route path="/packages" element={<Packages />}/>
+      //         <Route path="/package/:id" element={<Package />}/>
+      //         <Route path="/contact" element={<Contact />}/>
+      //         <Route path="/cart" element={<Cart />}/>
+      //         <Route path="/login" element={<Login />}/>
+      //         <Route path="/add" element={<AddPackage />} />
+      //         <Route path="/update/:id" element={<UpdatePackage />} />
+      //         <Route path="/HomeAdm" element={<HomeAdm />}/>
+      //         <Route path="/delete/:id" element={<DeletePackage />}/>
+      //         <Route path="*" element={<Home />} />
+      //       </Routes> 
+
+      //       <Footer/>
+      //   </div>
     );
 }
 

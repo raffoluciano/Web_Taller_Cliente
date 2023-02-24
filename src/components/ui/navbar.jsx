@@ -4,17 +4,17 @@ import shopping from "../../../public/shopping-cart.png";
 import user from "../../../public/user.png";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { AuthContext } from '../../context/AuthContext';
 import { getPackageByDestiny } from '../../utils/getdata';
 import { getPackagesByNameDestiny } from '../../store/slices/package';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { startLogout } from '../../store/slices/auth/thunks';
 
 
 
 const Navbar = () =>{
 
-     const { user: userName } = useContext(AuthContext);
      const [searchValue, setSearchValue] = useState('');
+     const { email } = useSelector(state => state.auth);
 
      const navigate = useNavigate();
      const location = useLocation();
@@ -43,6 +43,10 @@ const Navbar = () =>{
       }
     };
 
+    const onLogout = () => {
+      dispatch(startLogout());
+    }
+
     return (
         <header className="App-header">
       <nav className="navbar navbar-expand-lg">
@@ -54,9 +58,9 @@ const Navbar = () =>{
                <Link className="nav-link" to="/packages">Paquetes</Link>
                <Link className="nav-link" to="/contact">Contacto</Link>
                <div style={{display:'flex', alignItems: 'center', marginLeft:30}}>
-                 <h6 style={{color: 'red'}}> {userName.email} </h6>
+                 <h6 style={{color: 'red'}}> { email  } </h6>
                </div>
-               <div class="buscar">
+               <div className="buscar">
                 <input 
                   value={searchValue} 
                   onChange={handleChange}
@@ -68,6 +72,7 @@ const Navbar = () =>{
               </div>
                   <Link className="nav-link" to="/cart"><img src={shopping} className="carrito"/></Link>
                   <Link className="nav-link" to="/login"><img src={user} className="usuario"/></Link>
+                  <button type="button" className="btn btn-danger" onClick={onLogout}>Salir</button>
             </div>
           </div>
         </div>

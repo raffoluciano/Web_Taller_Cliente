@@ -8,7 +8,8 @@ import foto1 from '../../public/descarga.jpg';
 export const Home = () => {
 
   const [hotel, setHotel] = useState([]);
-  
+
+ 
   useEffect(() => {
       getHotel().then( data => {
           setHotel(data);
@@ -40,8 +41,8 @@ export const Home = () => {
         <div className="row row-cols-4">
           {
                 hotel.map( (element) => (                    
-                        <div>
-                            <HotelCard { ...element }/>
+                        <div key={element.id}>
+                            <HotelCard  { ...element }/>
                         </div>
                     ))
              }
@@ -62,7 +63,7 @@ export const Home = () => {
         <div className="row row-cols-4">
           {
                 destiny.map( (element) => (                    
-                        <div>
+                        <div key={element.id}>
                             <DestinyCard { ...element }/>
                         </div>
                     ))
