@@ -24,64 +24,64 @@ const AppRouter = () => {
 
   const status = useCheckAuth();
 
-  if ( status === 'checking' ) {
-    return <h1>Cargando</h1>
-  }
+  // if ( status === 'checking' ) {
+  //   return <h1>Cargando</h1>
+  // }
 
-    return (
-      <>
-        {
-          (status === 'authenticated')
-          ? (
-              <div className="AppRouter">
-                <Navbar/>
+    // return (
+    //   <>
+    //     {
+    //       (status === 'authenticated')
+    //       ? (
+    //           <div className="AppRouter">
+    //             <Navbar/>
 
-                <Routes>
-                  <Route path="/home" element={<Home />}/>
-                  <Route path="/packages" element={<Packages />}/>
-                  <Route path="/package/:id" element={<Package />}/>
-                  <Route path="/contact" element={<Contact />}/>
-                  <Route path="/cart" element={<Cart />}/>
-                  {/* <Route path="/login" element={<Login />}/> */}
-                  <Route path="/add" element={<AddPackage />} />
-                  <Route path="/update/:id" element={<UpdatePackage />} />
-                  <Route path="/HomeAdm" element={<HomeAdm />}/>
-                  <Route path="/delete/:id" element={<DeletePackage />}/>
-                  <Route path="*" element={<Home />} />
-                </Routes> 
+    //             <Routes>
+    //               <Route path="/home" element={<Home />}/>
+    //               <Route path="/packages" element={<Packages />}/>
+    //               <Route path="/package/:id" element={<Package />}/>
+    //               <Route path="/contact" element={<Contact />}/>
+    //               <Route path="/cart" element={<Cart />}/>
+    //               {/* <Route path="/login" element={<Login />}/> */}
+    //               <Route path="/add" element={<AddPackage />} />
+    //               <Route path="/update/:id" element={<UpdatePackage />} />
+    //               <Route path="/HomeAdm" element={<HomeAdm />}/>
+    //               <Route path="/delete/:id" element={<DeletePackage />}/>
+    //               <Route path="*" element={<Home />} />
+    //             </Routes> 
 
-                <Footer/>
-            </div>
-          )
-          : ( <Routes>
-                <Route path="/*" element={ <Login /> } />
-              </Routes>   
-          )
-        }
+    //             <Footer/>
+    //         </div>
+    //       )
+    //       : ( <Routes>
+    //             <Route path="/*" element={ <Login /> } />
+    //           </Routes>   
+    //       )
+    //     }
 
-      </>
-      
-      
-      // <div className="AppRouter">
-      //       <Navbar/>
+    //   </>
+    //);
 
-      //       <Routes>
-      //         <Route path="/home" element={<Home />}/>
-      //         <Route path="/packages" element={<Packages />}/>
-      //         <Route path="/package/:id" element={<Package />}/>
-      //         <Route path="/contact" element={<Contact />}/>
-      //         <Route path="/cart" element={<Cart />}/>
-      //         <Route path="/login" element={<Login />}/>
-      //         <Route path="/add" element={<AddPackage />} />
-      //         <Route path="/update/:id" element={<UpdatePackage />} />
-      //         <Route path="/HomeAdm" element={<HomeAdm />}/>
-      //         <Route path="/delete/:id" element={<DeletePackage />}/>
-      //         <Route path="*" element={<Home />} />
-      //       </Routes> 
+    return (<div className="AppRouter">
+            <Navbar/>
 
-      //       <Footer/>
-      //   </div>
-    );
+            <Routes>
+              <Route path="/home" element={<Home />}/>
+              <Route path="/packages" element={<Packages />}/>
+              <Route path="/package/:id" element={<Package />}/>
+              <Route path="/contact" element={<Contact />}/>
+              <Route path="/cart" element={<Cart />}/>
+              <Route path="/login" element={<Login />}/>
+              <Route path="/add" element={<AddPackage />} />
+              <Route path="/update/:id" element={<UpdatePackage />} />
+              <Route path="/HomeAdm" element={<HomeAdm />}/>
+              <Route path="/delete/:id" element={<DeletePackage />}/>
+              <Route path="*" element={<Home />} />
+            </Routes> 
+
+            <Footer/>
+        </div>
+        );
 }
 
 export default AppRouter;
