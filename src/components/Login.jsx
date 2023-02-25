@@ -26,7 +26,7 @@ const Login = () => {
     const onRegister = () => {
       if (!email && !password) return;
 
-      dispatch( startCreatingUserWithEmailPassword(formState) );
+      dispatch( startCreatingUserWithEmailPassword({email, password}) );
       
     }
 
