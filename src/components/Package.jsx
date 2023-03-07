@@ -39,6 +39,7 @@ const Package = () => {
         dispatch(addToCart({ packageId: info.id, quantity: cantidad }));
         setInfo({ ...info, cupos: info.cupos - cantidad });
         setCantidad(0);
+        alert('Producto agregado al carrito');
     }
 
     return(
@@ -63,7 +64,6 @@ const Package = () => {
                     <p className="detalle-parrafo">Hoteles: hotel1, hotel1, hotel1, hotel1, hotel1, hotel1,hotel1</p>
                     <p className="detalle">Transportes: transporte1, transporte1, transporte1, transporte1, transporte1</p>
                     <h6 className="detalle"> Cupos: {info.cupos} </h6>
-                    <input type="number" min="1" max={info.cupos} value={cantidad} onChange={(e) => setCantidad(parseInt(e.target.value))} />
                     <h6 className="detalle"><b>Precio: {info.precio}</b></h6>
                     <button type="button" className="btn btn-success"  onClick={() => addToCart(info)}>Comprar</button>
                     </div>
