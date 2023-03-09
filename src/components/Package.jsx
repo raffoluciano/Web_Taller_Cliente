@@ -39,7 +39,6 @@ const Package = () => {
         dispatch(addToCart({ packageId: info.id, quantity: cantidad }));
         setInfo({ ...info, cupos: info.cupos - cantidad });
         setCantidad(0);
-        alert('Producto agregado al carrito');
     }
 
     return(
@@ -60,10 +59,11 @@ const Package = () => {
                     <h6 className="detalle"> Fecha inicio: {date(info.comienzo)}  </h6>
                     <h6 className="detalle"> Fecha fin: {date(info.fin)} </h6>
                     <h6 className="detalle"> Lugar de salida: {info.salida} </h6>
-                    <h6 className="detalle">Excursiones: {info.excursiones}</h6>
-                    <h6 className="detalle">Hoteles: {info.hoteles}</h6>
-                    <h6 className="detalle">Transportes: {info.transporte}</h6>
+                    <p className="detalle-parrafo">Excursiones: excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1</p>
+                    <p className="detalle-parrafo">Hoteles: hotel1, hotel1, hotel1, hotel1, hotel1, hotel1,hotel1</p>
+                    <p className="detalle">Transportes: transporte1, transporte1, transporte1, transporte1, transporte1</p>
                     <h6 className="detalle"> Cupos: {info.cupos} </h6>
+                    <input type="number" min="1" max={info.cupos} value={cantidad} onChange={(e) => setCantidad(parseInt(e.target.value))} />
                     <h6 className="detalle"><b>Precio: {info.precio}</b></h6>
                     <button type="button" className="btn btn-success"  onClick={() => addToCart(info)}>Comprar</button>
                     </div>
