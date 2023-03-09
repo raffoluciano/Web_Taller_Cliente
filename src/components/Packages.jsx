@@ -42,7 +42,7 @@ export const Packages = () => {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li><a className="dropdown-item" href="#">Destino</a></li>
-                    <li><a className="dropdown-item" href="#">Tipo</a></li>
+                    <li><a className="dropdown-item" href="#">Fecha comienzo</a></li>
                     <li><a className="dropdown-item" href="#">Precio</a></li>
                     </ul>
                 </div>
