@@ -15,7 +15,12 @@ export const PackageCardAdm = ({ nombre, cupos, precio, salida, comienzo, duraci
                         </div>  
               <Link to={`/delete/${id}`}>
                 <button type="button" className="btn btn-primary ms-1 me-1 mb-1">
-                  Ver más
+                  Eliminar
+                </button>
+              </Link>
+              <Link to={`/update/${id}`}>
+                <button type="button" className="btn btn-primary ms-1 me-1 mb-1">
+                  Actualizar
                 </button>
               </Link>
             </div>
