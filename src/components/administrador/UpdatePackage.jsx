@@ -41,6 +41,17 @@ const UpdatePackage = ({ data }) => {
   const handleChange = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
+
+  const handleSubmit = () => {
+    updatePackage(info.id, formData)
+      .then(response => {
+        console.log('Data has been updated in the database:', response.data);
+        alert(`El paquete ${info.id} ha sido actualizado con éxito`);
+      })
+      .catch(error => {
+        console.error('Error updating data in the database:', error);
+      });
+  };  
                     
   return(
     <div className="App">
@@ -74,7 +85,7 @@ const UpdatePackage = ({ data }) => {
             <input className="form-control" type="text" value={formData.hoteles} name="hoteles" onChange={handleChange}/>
             <label htmlFor="inputExcursions" className="form-label">Precio</label>
             <input className="form-control" type="text" value={formData.precio} name="precio" onChange={handleChange}/>
-            <button onClick={handleUpdate} className="btn btn-primary">Actualizar</button>
+            <button onClick={handleSubmit} className="btn btn-primary">Actualizar</button>
           </div>
         </div>
       </div>
