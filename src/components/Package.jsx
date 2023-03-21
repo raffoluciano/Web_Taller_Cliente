@@ -46,9 +46,9 @@ const Package = () => {
                     <h6 className="detalle"> Fecha inicio: {date(info.comienzo)}  </h6>
                     <h6 className="detalle"> Fecha fin: {date(info.fin)} </h6>
                     <h6 className="detalle"> Lugar de salida: {info.salida} </h6>
-                    <p className="detalle-parrafo">Excursiones: excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1, excursion1</p>
-                    <p className="detalle-parrafo">Hoteles: hotel1, hotel1, hotel1, hotel1, hotel1, hotel1,hotel1</p>
-                    <p className="detalle">Transportes: transporte1, transporte1, transporte1, transporte1, transporte1</p>
+                    <p className="detalle-parrafo">Excursiones: {info.excursiones}</p>
+                    <p className="detalle-parrafo">Hoteles: {info.hoteles}</p>
+                    <p className="detalle">Transportes: {info.transportes}</p>
                     <h6 className="detalle"><b>Precio: {info.precio}</b></h6>
                     <button type="button" className="btn btn-success" onClick={() => { addToCart(info)}}>
                         Comprar
