@@ -67,6 +67,8 @@ const UpdatePackage = ({ data }) => {
           <div className="col-4">
             <label htmlFor="inputName" className="form-label">Nombre</label>
             <input className="form-control" type="text" value={formData.nombre} name="nombre" onChange={handleChange}/>
+            <label htmlFor="inputName" className="form-label">Destino</label>
+            <input className="form-control" type="text" value={formData.destino} name="destino" onChange={handleChange}/>
             <label htmlFor="inputTime" className="form-label"> Duracion </label>
             <input className="form-control" type="text" value={formData.duracion} name="duracion" onChange={handleChange}/>
             <label htmlFor="inputInit" className="form-label"> Comienzo </label>
@@ -81,8 +83,10 @@ const UpdatePackage = ({ data }) => {
             <input className="form-control" type="text" value={formData.cupos} name="cupos" onChange={handleChange}/>
             <label htmlFor="inputExcursions" className="form-label">Excursiones</label>
             <input className="form-control" type="text" value={formData.excursiones} name="excursiones" onChange={handleChange} />
-            <label htmlFor="inputExcursions" className="form-label">Hoteles</label>
+            <label htmlFor="inputHotels" className="form-label">Hoteles</label>
             <input className="form-control" type="text" value={formData.hoteles} name="hoteles" onChange={handleChange}/>
+            <label htmlFor="inputTransp" className="form-label">Transporte</label>
+            <input className="form-control" type="text" value={formData.transporte} name="transporte" onChange={handleChange}/>
             <label htmlFor="inputExcursions" className="form-label">Precio</label>
             <input className="form-control" type="text" value={formData.precio} name="precio" onChange={handleChange}/>
             <button onClick={handleSubmit} className="btn btn-primary">Actualizar</button>

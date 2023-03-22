@@ -20,7 +20,7 @@ const Cart = () => {
         <div className='container'>
             {cartItems.length === 0 ? (
                 <div>
-                    <p>El carrito está vacío.</p>
+                    <h4><p>El carrito está vacío.</p></h4>
                 </div>
             ) : (
                 <div>
@@ -41,7 +41,7 @@ const Cart = () => {
                         </div>
                     ))}
                     <div>
-                        <p>Precio total: ${getTotalPrice()}</p>
+                    <h4><p>Precio total: ${getTotalPrice()}</p></h4>
                         <button type="button" className="btn btn-success">Finalizar compra</button>
                     </div>
                 </div>
