@@ -76,8 +76,8 @@ const getPackageById = async(id) => {
     return response.data
 };
 
-const getPackageByDestiny = async(nombre) => {
-    const url = `http://localhost:4000/package/destiny/${nombre}`
+const getPackageByDestiny = async(destino) => {
+    const url = `http://localhost:4000/package/destiny/${destino}`
     const response = await axios.get(url)
     return response.data
 }
