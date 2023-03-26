@@ -13,7 +13,8 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
         descripcion: '',
         cupos: '',
         excursiones: '',
-        hoteles: ''
+        hoteles: '',
+        transporte: ''
     });
 
     const handleInputChange = event => {
@@ -36,11 +37,13 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
             "descripcion": formData.descripcion,
             "cupos": formData.cupos,
             "excursiones": formData.excursiones,
-            "hoteles": formData.hoteles
+            "hoteles": formData.hoteles,
+            "transporte": formData.transporte
           }
           createPackage(myFormatedData)
             .then(formData => {
               console.log('Data has been loaded to the database:', formData);
+              alert(`El paquete ${formData.id} ha sido agregado con éxito`);
             })
             .catch(error => {
               console.error('Error loading data to the database:', error);
@@ -97,6 +100,10 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                     <label for="inputHotels" class="form-label">Hoteles</label>
                     <textarea className="form-control" type='text' value={formData.hoteles} onChange={handleInputChange} name="hoteles"></textarea>
                 </div>
+                <div class="col-5">
+                    <label for="inputTransps" class="form-label">Transportes</label>
+                    <textarea className="form-control" type='text' value={formData.transportes} onChange={handleInputChange} name="transportes"></textarea>
+                </div>
                 </div>
                 <div class="row justify-content-end">
                     <div class="col-4">
@@ -113,6 +120,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
+                                <p> <b> Destino: </b>  { formData.destino } </p>
                                 <p> <b> Cupos: </b>  { formData.cupos } </p>
                                 <p> <b> Precio: </b> $ { formData.precio } </p>
                                 <p> <b> Duracion: </b> { formData.duracion }</p>
@@ -121,7 +129,8 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                                 <p> <b> Fin: </b> { formData.fin }</p>
                                 <p> <b> Descripcion: </b> { formData.descripcion }</p>
                                 <p> <b> Excursiones: </b> { formData.excursiones }</p>
-                                <p> <b> Hoteles: </b> { formData.hoteles }</p>                                
+                                <p> <b> Hoteles: </b> { formData.hoteles }</p>      
+                                <p> <b> Transporte: </b> { formData.transporte }</p>                                
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
