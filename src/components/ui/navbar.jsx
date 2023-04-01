@@ -28,16 +28,18 @@ const Navbar = () =>{
      const handleSearch = async(event) => {
       if (event.key === 'Enter') {
         const currentPath = location.pathname;
-
+        
         if (searchValue === '' || searchValue === null) return 
+        
+        const upercaseSearchValue = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
 
         const isPackagePath = currentPath.includes('packages');
 
         if ( isPackagePath ) {
-          dispatch(getPackagesByNameDestiny(searchValue));
+          dispatch(getPackagesByNameDestiny(upercaseSearchValue));
         }
         else  {
-          dispatch(getPackagesByNameDestiny(searchValue));
+          dispatch(getPackagesByNameDestiny(upercaseSearchValue));
           navigate('/packages');
         }
       }
