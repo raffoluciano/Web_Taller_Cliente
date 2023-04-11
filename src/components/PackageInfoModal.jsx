@@ -25,7 +25,7 @@ export const PackageInfoModal = ({ nombre, cupos, precio, salida, comienzo, dura
                     <h6 className="detalle">Nombre del paquete</h6>
                     <h6 className="detalle">Nombre del paquete</h6>
                     <h6 className="detalle">Nombre del paquete</h6>
-                    <button className="btn-buy" type="button">Comprar</button>
+                    <button class="btn btn-success" type="button">Comprar</button>
                     </div>
                 </div>
                 </div>

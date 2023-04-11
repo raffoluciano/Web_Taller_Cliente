@@ -10,6 +10,7 @@ import Home from '../components/Home';
 import Contact from '../components/Contact';
 import Login from '../components/Login';
 import Cart from '../components/Cart';
+import Register from '../components/Register';
 import { Routes, Route } from "react-router-dom";
 import AddPackage from "../components/administrador/AddPackage";
 import UpdatePackage from "../components/administrador/UpdatePackage";
@@ -72,6 +73,7 @@ const AppRouter = () => {
               <Route path="/contact" element={<Contact />}/>
               <Route path="/cart" element={<Cart />}/>
               <Route path="/login" element={<Login />}/>
+              <Route path="/register" element={<Register />}/>
               <Route path="/add" element={<AddPackage />} />
               <Route path="/update/:id" element={<UpdatePackage />} />
               <Route path="/HomeAdm" element={<HomeAdm />}/>

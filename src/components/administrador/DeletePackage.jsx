@@ -63,7 +63,7 @@ const DeletePackage = () => {
                     <p className="detalle">Excursiones: {info.excursiones} </p>
                     <p className="detalle">Hoteles: {info.hoteles} </p>
                     <p className="detalle"><b>$ {info.precio}</b></p>
-                   <Link to={'/HomeAdm'}> <button type="button" class="btn btn-light" onClick={() => handleDelete(info.id) }>Eliminar</button>
+                   <Link to={'/HomeAdm'}> <button type="button" class="btn btn-danger" onClick={() => handleDelete(info.id) }>Eliminar</button>
                    </Link>
                     </div>
                 </div>

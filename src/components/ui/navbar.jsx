@@ -74,7 +74,6 @@ const Navbar = () =>{
               </div>
                   <Link className="nav-link" to="/cart"><img src={shopping} className="carrito"/></Link>
                   <Link className="nav-link" to="/login"><img src={user} className="usuario"/></Link>
-                  <button type="button" className="btn btn-danger" onClick={onLogout}>Salir</button>
             </div>
           </div>
         </div>

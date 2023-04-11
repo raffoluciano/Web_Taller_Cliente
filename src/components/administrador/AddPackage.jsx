@@ -107,7 +107,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                 </div>
                 <div class="row justify-content-end">
                     <div class="col-4">
-                        <button type="button" onClick={ handleSubmit } className="btn btn-primary ms-1 me-1 mb-1" data-bs-toggle="modal" data-bs-target={`#modal${formData.nombre}`}>
+                        <button type="button" onClick={ handleSubmit } className="btn btn-success" data-bs-toggle="modal" data-bs-target={`#modal${formData.nombre}`}>
                             Cargar
                         </button>
                     </div>

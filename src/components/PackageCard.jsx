@@ -14,7 +14,7 @@ export const PackageCard = ({ nombre, cupos, precio, salida, comienzo, duracion,
                         <h6 className="card-title-price">$ { precio }</h6>
                         </div>  
               <Link to={`/package/${id}`}>
-                <button type="button" className="btn btn-primary ms-1 me-1 mb-1">
+                <button type="button">
                   Ver más
                 </button>
               </Link>
