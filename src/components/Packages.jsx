@@ -21,6 +21,10 @@ export const Packages = () => {
        if (packages.length === 0) dispatch(getAllPackages())
     }, [])
 
+    const resetFilter = () => {
+        dispatch(getAllPackages());
+    } 
+
     if(isLoading) return (
         <div className="spinner-border" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -45,8 +49,9 @@ export const Packages = () => {
                     <li><a className="dropdown-item" href="#">Fecha comienzo</a></li>
                     <li><a className="dropdown-item" href="#">Precio</a></li>
                     </ul>
-                </div>
-                </div>
+                    <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Reset </a>
+        </div>
+        </div>
         <div className='container'>        
         <div className="row row-cols-3">    
             {
