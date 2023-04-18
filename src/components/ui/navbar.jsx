@@ -49,37 +49,36 @@ const Navbar = () =>{
       dispatch(startLogout());
     }
 
-    return (
-        <header className="App-header">
-      <nav className="navbar navbar-expand-lg">
-        <div className="container-fluid">
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <img className="logo" src={logo}/>
-               <Link className="nav-link" to="/home">Home</Link> 
-               <Link className="nav-link" to="/packages">Paquetes</Link>
-               <Link className="nav-link" to="/contact">Contacto</Link>
-               <div style={{display:'flex', alignItems: 'center', marginLeft:30}}>
-                 <h6 style={{color: 'red'}}> { email  } </h6>
-               </div>
-               <div className="buscar">
-                <input 
+return (
+  <header>
+    <div className="navbar">
+      <div className="navbar-logo">
+      <Link to="/home"><img src={logo}/></Link>
+      </div>
+      <div className="navbar-links">
+        <ul>
+          <Link to="/home"><li>Inicio</li></Link>
+          <Link to="/packages"><li><a>Paquetes</a></li></Link>
+          <Link to="/contact"><li><a>Contacto</a></li></Link>
+        </ul>
+      </div>
+      <div className="navbar-search">
+      <input 
                   value={searchValue} 
                   onChange={handleChange}
                   type="text" 
-                  placeholder="Buscar" 
+                  placeholder="Buscar..." 
                   required 
                   onKeyDown={handleSearch} 
                 />
-              </div>
-                  <Link className="nav-link" to="/cart"><img src={shopping} className="carrito"/></Link>
-                  <Link className="nav-link" to="/login"><img src={user} className="usuario"/></Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-      </header>
-    );
-}
+      </div>
+      <div className="navbar-img">
+      <Link to="/cart"><img src={shopping}/></Link>
+      <Link to="/login"><img src={user}/></Link>
+      </div>
+    </div>
+  </header>
+);
+};
 
 export default Navbar;

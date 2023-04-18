@@ -1,4 +1,4 @@
-body{
+/*body{
     background-color: #d8d8d8;
     font-family: 'Quicksand', sans-serif;
     width: 100%;
@@ -44,6 +44,85 @@ header{
 .logo{
     width: 15%
 }
+*/
+body {
+    background-color: #d8d8d8;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #333533;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 90px;
+  }
+  
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo img {
+    height: 80px;
+    margin-right: 10px;
+  }
+  
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .navbar-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-links ul li {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    list-style: none;
+    outline: none;
+  }
+  
+  .navbar-links ul li:hover {
+    transform: scale(1.10);
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    justify-content: center;
+    border-radius: 20px;
+    margin: 0;
+    padding: 5px 10px;
+    flex-shrink: 1;
+  }
+  
+  .navbar-search input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  .navbar-img{
+    width: 200px;
+  }
+  .navbar-img img{
+    margin: 20px;
+    height: 28px;
+  }
 
 .carousel-inner{
     position: relative;
@@ -141,19 +220,7 @@ footer{
     font-size: small;
     margin-left: -3%;
 }
- /*
-.btn-success{
-    border-radius: 15%;
-    background-color: green;
-    border: green;
-    width: 23%;
-    height: 7%;
-    color: white;
-    font-weight: bold;
-    margin-left: 80%;
-    margin-top: 20%;
-}
-*/
+
 .page-link{
     color: black;
 }
@@ -255,5 +322,225 @@ footer{
   }
 
 
+@media (max-width: 768px) {
+    .navbar {
+        background-color: #333533;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        height: 60px;
+      }
+      
+      .navbar-logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .navbar-logo img {
+        height: 40px;
+        margin-right: 10px;
+      }
+      
+      .navbar-links {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+      }
+      
+      .navbar-links ul {
+        list-style: none;
+        display: flex;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .navbar-links ul li {
+        position: relative;
+      }
+      
+      .navbar-links ul li:hover {
+        transform: scale(1.05);
+      }
+      
+      .navbar-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 7px;
+        font-size: 13px;
+      }
+      
+      .navbar-search {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        justify-content: center;
+        border-radius: 20px;
+        margin: 0 0;
+        padding: 5px 10px;
+        flex-shrink: 1;
+        height: 15px;
+      }
+      
+      .navbar-search input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        height: 10px;
+        width: 100%;
+      }
+      
+      .navbar-img img{
+        margin: 10px;
+        height: 15px;
+      }  
+}
   
-  
+@media (max-width: 1112px) {
+      
+      .navbar-links {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+      }
+      
+      .navbar-links ul li {
+        position: relative;
+      }
+      
+      .navbar-links ul li:hover {
+        transform: scale(1.05);
+      }
+      
+      .navbar-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 7px;
+      }
+      
+      .navbar-search {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 5px 10px;
+        flex-shrink: 1;
+        height: 30px;
+      }
+      
+      .navbar-search input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        height: 28px;
+        width: 100%;
+      }
+      
+      .navbar-img img{
+        height: 20px;
+      }
+}
+
+@media (max-width: 857px) {
+    .navbar-links {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+      }
+      
+      .navbar-links ul li {
+        position: relative;
+      }
+      
+      .navbar-links ul li:hover {
+        transform: scale(1.05);
+      }
+      
+      .navbar-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 7px;
+      }
+      
+      .navbar-search {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 5px 10px;
+        flex-shrink: 1;
+        height: 30px;
+        width: 150px;
+    }
+      
+      .navbar-search input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        height: 28px;
+        width: 100%;
+      }
+
+      .navbar-img{
+        width: 100px;
+      }    
+      
+      .navbar-img img{
+        margin: 7px;
+        height: 20px;
+      }
+}    
+
+@media (max-width: 499px) {
+    .navbar-links {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+      }
+      
+      .navbar-links ul li {
+        position: relative;
+      }
+      
+      .navbar-links ul li:hover {
+        transform: scale(1.05);
+      }
+      
+      .navbar-links ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 3px;
+      }
+
+    .navbar-search {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        justify-content: center;
+        border-radius: 20px;
+        padding: 5px 10px;
+        flex-shrink: 1;
+        height: 20px;
+        width: 80px;
+    }
+      
+      .navbar-search input {
+        border: none;
+        outline: none;
+        padding: 5px;
+        height: 18px;
+        width: 100%;
+      }   
+    
+      .navbar-img{
+        width: 50px;
+      }    
+      
+      .navbar-img img{
+        margin: 5px;
+        height: 15px;
+      }
+}
