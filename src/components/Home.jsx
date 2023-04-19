@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { HotelCard } from './HotelCard';
 import { DestinyCard } from './DestinyCard';
-import { getHotel, getDestiny } from '../utils/getdata';
+import { getHotel, getDestiny, getPackage } from '../utils/getdata';
 import foto1 from '../../public/descarga.jpg';
 
 
@@ -20,7 +19,7 @@ export const Home = () => {
   const [destiny, setDestiny] = useState([]);
 
   useEffect(() => {
-      getDestiny().then( data => {
+      getPackage().then( data => {
           setDestiny(data);
       })
       .catch( error => console.log(error));
@@ -36,15 +35,15 @@ export const Home = () => {
   return(
     <>
       <div className="container">
-        <h6 className="title">Algunos de nuestros hoteles</h6>
+        <h6 className="title">Algunos de nuestros destinos</h6>
         <hr className="title"/>
         <div className="row row-cols-4">
           {
-                hotel.map( (element) => (                    
-                        <div key={element.id}>
-                            <HotelCard  { ...element }/>
-                        </div>
-                    ))
+                destiny.map( (element) => (                    
+                  <div key={element.id}>
+                      <DestinyCard { ...element }/>
+                  </div>
+              ))
              }
           </div>
       </div>
@@ -56,19 +55,6 @@ export const Home = () => {
           </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <h6 className="title">Algunos de nuestros destinos</h6>
-        <hr className="title"/>
-        <div className="row row-cols-4">
-          {
-                destiny.map( (element) => (                    
-                        <div key={element.id}>
-                            <DestinyCard { ...element }/>
-                        </div>
-                    ))
-             }
-          </div>
       </div>
     </>
     );
