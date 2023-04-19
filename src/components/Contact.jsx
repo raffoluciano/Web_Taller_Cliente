@@ -20,7 +20,7 @@ const Contact = () => {
                         <div className="mb-3">
                             <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Consulta"></textarea>
                         </div>
-                        <button className="btn-send" type="button">Enviar</button>
+                        <button className="btn btn-success" type="button">Enviar</button>
                     </div>
                     <div className="col-4">
                         <h6 className="title">Encontranos</h6>
