@@ -14,13 +14,17 @@ const Package = () => {
     
     const { addToCart } = useContext(CartContext);
 
+    const [images, setImages] = useState(['alaska1.jpg','alaska2.jpg','alaska3.jpg'])
+
+    console.log(images)
+
     useEffect( () => {
         const packageinfo = async () => {
             const inf = await getPackageById(id);
             setInfo(inf[0])
         }
         packageinfo();
-       
+     
     }, []);
 
     if(!info){
@@ -34,10 +38,11 @@ const Package = () => {
                 <hr className="title"/>
                 <div className="row justify-content-evenly">
                     <div className="col-4">
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    
+                        {
+                           images.map(image =>(
+                                <img style={{margin: 2}} key={image} src={`http://localhost:4000/images/${image}`} className="img-fluid" alt="..."/>
+                           ))
+                        }             
                     </div>
                     <div className="col-4">
                     <h6 className="detalle"> {info.nombre} </h6>
