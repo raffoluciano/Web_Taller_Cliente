@@ -45,16 +45,16 @@ const Package = () => {
                         }             
                     </div>
                     <div className="col-4">
-                    <h6 className="detalle"> {info.nombre} </h6>
-                    <h6 className="detalle">Destino: {info.destino} </h6>
-                    <h6 className="detalle">Duracion: {info.duracion} </h6>
-                    <h6 className="detalle"> Fecha inicio: {date(info.comienzo)}  </h6>
-                    <h6 className="detalle"> Fecha fin: {date(info.fin)} </h6>
-                    <h6 className="detalle"> Lugar de salida: {info.salida} </h6>
+                    <p className="detalle"> {info.nombre} </p>
+                    <p className="detalle">Destino: {info.destino} </p>
+                    <p className="detalle">Duracion: {info.duracion} días</p>
+                    <p className="detalle"> Fecha inicio: {date(info.comienzo)}  </p>
+                    <p className="detalle"> Fecha fin: {date(info.fin)} </p>
+                    <p className="detalle"> Lugar de salida: {info.salida} </p>
                     <p className="detalle-parrafo">Excursiones: {info.excursiones}</p>
                     <p className="detalle-parrafo">Hoteles: {info.hoteles}</p>
                     <p className="detalle-parrafo">Transporte: {info.transporte}</p>
-                    <h6 className="detalle"><b>Precio: {info.precio}</b></h6>
+                    <p className="detalle"><b>Precio: $ {info.precio}</b></p>
                     <button type="button" className="btn btn-success" onClick={() => { addToCart(info)}}>
                         Comprar
                     </button>
