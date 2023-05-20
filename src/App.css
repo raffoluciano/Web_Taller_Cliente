@@ -1,50 +1,3 @@
-/*body{
-    background-color: #d8d8d8;
-    font-family: 'Quicksand', sans-serif;
-    width: 100%;
-}
-
-header{
-    background-color: #333533;
-    width: 100%;
-
-}
-
-.nav-link{
-    color: white;
-    margin-top: 2%;
-    margin-left: 2%;
-}
-
-.buscar {
-    position: relative;
-    margin-top: 32px;
-    margin-left: 250px;
-  }
-  
-  .buscar input {
-    width: 240px;
-    height: 30px;
-    padding: 0 20px;
-    font-size: 18px;
-    color: #222;
-    border: solid #333533;
-    border-radius: 30px;
-  }
-
-.carrito{
-    width: 23%;
-    margin-left: 100px;
-}
-
-.usuario{
-    width: 27%;
-}
-
-.logo{
-    width: 15%
-}
-*/
 body {
     background-color: #d8d8d8;
     font-family: 'Quicksand', sans-serif;
@@ -319,6 +272,11 @@ footer{
     display: block;
     max-width: 100%;
     height: auto;
+  }
+
+  img {
+    height: 190px;
+    object-fit: cover;
   }
 
 
