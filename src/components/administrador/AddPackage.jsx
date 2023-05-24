@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {createPackage} from '../../utils/createdata';
+import {createPackage, saveImagePackage} from '../../utils/createdata';
 
 const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, descripcion, excursiones, hoteles, activo }) => {
 
@@ -14,8 +14,23 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
         cupos: '',
         excursiones: '',
         hoteles: '',
-        transporte: ''
+        transporte: '',
     });
+
+    const [imagenes, setImagenes] = useState({
+        imagen1: null,
+        imagen2: null,
+        imagen3: null
+    });
+
+    const cargarArchivo = (event) => {
+        setImagenes({
+            ...imagenes,
+            [event.target.name]: event.target.files
+        })
+    }
+
+    console.log('imagen',imagenes);
 
     const handleInputChange = event => {
         setFormData({
@@ -24,8 +39,15 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
         });
     };
 
+    const getImageData = (imagen) => {
+        const formData = new FormData()
+        formData.append(imagen[0].name, imagen)
+
+        return formData
+    }
+
     const handleSubmit = event => {
-        event.preventDefault();
+        event.preventDefault(formData);
         const myFormatedData = {
             "nombre": formData.nombre,
             "destino": formData.destino,
@@ -39,10 +61,21 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
             "excursiones": formData.excursiones,
             "hoteles": formData.hoteles,
             "transporte": formData.transporte
-          }
-          createPackage(myFormatedData)
+        }
+
+           if(imagenes[0] === null || imagenes[1] === null, imagenes[2] === null) {
+                console.log('se deben agregar las imagene del paquete')
+                return 
+           }
+
+            createPackage(myFormatedData)
             .then(formData => {
               console.log('Data has been loaded to the database:', formData);
+
+              saveImagePackage(getImageData(imagenes.imagen1))  
+              saveImagePackage(getImageData(imagenes.imagen2)) 
+              saveImagePackage(getImageData(imagenes.imagen3)) 
+
               alert(`El paquete ${formData.id} ha sido agregado con éxito`);
             })
             .catch(error => {
@@ -103,6 +136,18 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                 <div class="col-5">
                     <label for="inputTransps" class="form-label">Transportes</label>
                     <textarea className="form-control" type='text' value={formData.transportes} onChange={handleInputChange} name="transportes"></textarea>
+                </div>
+                <div class="col-5 mt-3">
+                    <label for="inputTransps" class="form-label">Imagen1 </label>
+                    <input type="file" name='imagen1' onChange={(e) => cargarArchivo(e)}/>
+                </div>
+                <div class="col-5 mt-3">
+                    <label for="inputTransps" class="form-label">Imagen2 </label>
+                    <input type="file" name='imagen2' onChange={(e) => cargarArchivo(e)}/>
+                </div>
+                <div class="col-5 mt-3">
+                    <label for="inputTransps" class="form-label">Imagen3 </label>
+                    <input type="file" name='imagen3' onChange={(e) => cargarArchivo(e)}/>
                 </div>
                 </div>
                 <div class="row justify-content-end">

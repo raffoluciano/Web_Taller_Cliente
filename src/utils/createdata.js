@@ -59,7 +59,7 @@ const createMeanoftransport = async(data) => {
 const createPackage = async(data) => {
 
     console.log(data)
-    const url = `http://localhost:4000/add`
+    const url = `http://localhost:4000/package/package`
     const response = await axios.post(url,data);
     return response.data
 };
@@ -127,6 +127,12 @@ const createPlacexexcursion = async(data) => {
     return response.data
 };
 
+const saveImagePackage = async(data) => {
+    const url = `http://localhost:4000/package/packageImage`
+    const response = await axios.post(url,data);
+    return response.data
+}
 
-export { createLocation,createDestiny,createCountry,createExcursion, createHotel, createLine,createMeanoftransport,createPackage,createShoppingcart,createTypetransport,createUser,createTransportxpackage,createDestinyxpackage,createExcursionxpackage,createHotelxpackage,createPlacexexcursion}
+
+export { createLocation,createDestiny,createCountry,createExcursion, createHotel, createLine,createMeanoftransport,createPackage,createShoppingcart,createTypetransport,createUser,createTransportxpackage,createDestinyxpackage,createExcursionxpackage,createHotelxpackage,createPlacexexcursion,saveImagePackage}
 

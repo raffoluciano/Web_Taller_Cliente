@@ -3,8 +3,32 @@ import logo from '../../public/logoAHORA.png';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import date from '../utils/date';
+import { CardPayment, Wallet } from '@mercadopago/sdk-react';
+import { Payment } from '@mercadopago/sdk-react';
+import { initMercadoPago } from '@mercadopago/sdk-react';
+
+initMercadoPago('APP_USR-9f6e8024-c127-4a5d-a4a4-50af73d2540e', { locale: 'es-AR'});
+
+const initialization = {
+    amount: 100,
+    preferenceId: '207446753-ea3adb2e-a4f2-41dd-a656-11cb01b8772c',
+  };
+
+  const customization = {
+    paymentMethods: {
+      atm: 'all',
+      ticket: 'all',
+      bankTransfer: ['pix'],
+      creditCard: 'all',
+      debitCard: 'all',
+      mercadoPago: 'all',
+    },
+  };
+
 
 const Cart = () => {
+
+    
 
     const { cartItems } = useContext(CartContext);
 
@@ -42,7 +66,28 @@ const Cart = () => {
                     ))}
                     <div>
                     <h4><p>Precio total: ${getTotalPrice()}</p></h4>
-                        <button type="button" className="btn btn-success">Finalizar compra</button>
+                        {/* <button type="button" className="btn btn-success">Finalizar compra</button> */}
+                        {/* <CardPayment
+                            initialization={{ amount: 10 }}
+                            onSubmit={async (param) => {
+                                console.log(param);
+                            }}
+                        /> */}
+                        <Payment
+                            initialization={initialization}
+                            customization={customization}
+                            onSubmit={async (param) => {
+                                console.log(param);
+                            }}
+                        />
+                        
+                        {/* <Wallet
+                            initialization={{
+                                preferenceId: '239656545-89accc4d-3fc9-4835-828b-b8fa16b2fdce',
+                                redirectMode: 'modal',
+                            }}
+                        />; */}
+                        
                     </div>
                 </div>
             )}
