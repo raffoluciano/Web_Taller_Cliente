@@ -14,14 +14,15 @@ const Package = () => {
     
     const { addToCart } = useContext(CartContext);
 
-    const [images, setImages] = useState(['alaska1.jpg','alaska2.jpg','alaska3.jpg'])
+    const [images, setImages] = useState([]);
 
-    console.log(images)
 
     useEffect( () => {
         const packageinfo = async () => {
             const inf = await getPackageById(id);
+            const imagen = [inf[0].imagen1, inf[0].imagen2, inf[0].imagen3];
             setInfo(inf[0])
+            setImages(imagen)
         }
         packageinfo();
      
