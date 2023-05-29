@@ -41,7 +41,7 @@ const Package = () => {
                     <div className="col-4">
                         {
                            images.map(image =>(
-                                <img style={{margin: 2}} key={image} src={`http://localhost:4000/images/${image}`} className="img-fluid" alt="..."/>
+                                <img key={image} src={`http://localhost:4000/images/${image}`} className="img-fluid" alt="..."/>
                            ))
                         }             
                     </div>
