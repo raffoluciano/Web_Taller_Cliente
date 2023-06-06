@@ -4,13 +4,59 @@ import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
 import { getPackage } from '../utils/getdata';
 
+const MY_SELECT_DATA = [
+  {
+    groupName: "destino",
+    items: [
+      {
+        name: "bariloche",
+        value: "bariloche",
+      },
+      {
+        name: "tilcara",
+        value: "tilcara",
+      },
+    ],
+  },
+  {
+    groupName: "fecha",
+    items: [
+      {
+        name: "Menos 60 días",
+        value: 60,
+      },
+      {
+        name: "Menos 45 días",
+        value: 45,
+      },
+      {
+        name: "Menos 30 días",
+        value: 30,
+      },
+    ],
+  },
+  {
+    groupName: "precio",
+    items: [
+      {
+        name: "Hasta 50 mil",
+        value: 50000,
+      },
+      {
+        name: "Hasta 70 mil",
+        value: 70000,
+      },
+    ],
+  },
+];
+
 
 export const Packages = () => {
 
     //obtengo los paquetes
     const [packFilter, setPackageFilter] = useState([])
-    const [filter, setFilter] = useState({category:'', value:''})
-    
+    const [filter, setFilter] = useState({category: '', value: null})
+
     const dispatch = useDispatch();
     //se almacena los paquetes en el estado global
     const { packages, isLoading } = useSelector(state => state.package);
@@ -35,7 +81,7 @@ export const Packages = () => {
 
 
     const resetFilter = () => {
-        setFilter({category:'', value:''})
+        setFilter({category: '', value: null})
         dispatch(getAllPackages());
     } 
 
@@ -51,47 +97,67 @@ export const Packages = () => {
         </div>
     )
 
+
     const handleSelectClick = (category, value) => {
-        setFilter({category:category, value:value})
+        setFilter({category, value})
     } 
+
+    
 
   return (
     <>
-    <div className='container'>
-        <div className="dropdown">
-                    <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    Filtrar
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li>
-                            <a className="dropdown-item" href="#">Destino</a>
-                            <ul className='submenu-filtros'>
-                                <li onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
-                                <li onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a className="dropdown-item" href="#">Fecha comienzo</a>
-                        </li>
-                        <li>
-                            <a className="dropdown-item" href="#">Precio</a>
-                        </li>
-                    </ul>
-                    <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Reset </a>
+      <div className="container">
+        <Filter handleSelect={handleSelectClick} groupsData={MY_SELECT_DATA} />
+        <a className="btn btn-secondary ms-1" role="button" onClick={resetFilter}>
+          {" "}Reset{" "}
+        </a>
+      </div>
+      <div className="container">
+        <div className="row row-cols-3">
+          {
+            // packFilter.map( (element) => (
+            //         <div>
+            //                 <PackageCard key={element.id} { ...element }/>
+            //         </div>
+            //     ))
+          }
         </div>
-        </div>
-        <div className='container'>        
-        <div className="row row-cols-3">    
-            {
-                packFilter.map( (element) => (                    
-                        <div>
-                                <PackageCard key={element.id} { ...element }/>
-                        </div>
-                    ))
-             }
-        </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }
 export default Packages;
+
+function Filter ({groupsData, handleSelect}) {
+  return (
+    <div className="dropdown">
+      <a
+        className="btn btn-secondary dropdown-toggle"
+        href="#"
+        role="button"
+        id="dropdownMenuLink"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Filter
+      </a>
+      <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {groupsData.map((group) => (
+          <li key={group.groupName}>
+              <p className="dropdown-item" href="#">{group.groupName}</p>
+              <ul className='submenu-filtros'>
+                  {group.items.map(item => 
+                    <li
+                      key={item.value}
+                      onClick={() => handleSelect(group.groupName, item.value)}
+                    >
+                      {item.name}
+                    </li>
+                  )}
+              </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
