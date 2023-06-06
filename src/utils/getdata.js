@@ -3,20 +3,20 @@ import axios from 'axios';
 
 //Falta arreglar en servidor: tipo de paquete y tipo de transporte.
 
-//TODOS LOS QUE SON POR ID FIJARSE SI FALTARIA AGREGAR UNA LIA CON UN RESPONSE.JSON()
 
 const getCountry = async() => {
     const url = `http://localhost:4000/country/country`
     const response = await axios.get(url)
     return response.data
 };
-
+//creo que no iria mas
 const getDestiny = async() => {
     const url = `http://localhost:4000/destiny/destiny`
     const response = await axios.get(url)
     return response.data
 };
 
+//creo que no iria mas
 const getDestinyById = async(id) => {
     //VER
     const url = `http://localhost:4000/destiny/${id}`
@@ -81,7 +81,7 @@ const getPackageByDestiny = async(destino) => {
     const response = await axios.get(url)
     return response.data
 }
-
+/*
 const getPackageByDate = async(comienzo) => {
     //desde det fecha
     const url = `http://localhost:4000/package/date/${comienzo}`
@@ -94,7 +94,7 @@ const getPackageByPrice = async(precio) => {
     const url = `http://localhost:4000/package/price/${precio}`
     const response = await axios.get(url)
     return response.data
-}
+}*/
 
 const getPromotion = async() => {
     //VER si es necesario
@@ -170,8 +170,6 @@ export {
     getPackage,
     getPackageById,
     getPackageByDestiny,
-    getPackageByDate,
-    getPackageByPrice,
     getPromotion, 
     getRoles,
     getRoleById,

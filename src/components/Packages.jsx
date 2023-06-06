@@ -7,27 +7,41 @@ import { getPackage } from '../utils/getdata';
 
 export const Packages = () => {
 
-    // const [packages, setPackages] = useState([]);
-
+    //obtengo los paquetes
+    const [packFilter, setPackageFilter] = useState([])
+    const [filter, setFilter] = useState({category:'', value:''})
+    
     const dispatch = useDispatch();
+    //se almacena los paquetes en el estado global
     const { packages, isLoading } = useSelector(state => state.package);
 
     useEffect(() => {
-        // getPackage().then( data => {
-        //     setPackages(data);
-        // })
-        // .catch( error => console.log(error));
-
        if (packages.length === 0) dispatch(getAllPackages())
     }, [])
 
+    useEffect( () => {
+        const filterPackage = () => {
+            const packagesFilter = packages.filter(pack => pack[filter.category]===filter.value) 
+            if (packagesFilter.length===0){
+                setPackageFilter(packages)
+            }
+            else {
+                setPackageFilter(packagesFilter)
+            }
+            
+        };
+        filterPackage();
+    }, [filter, packages]);
+
+
     const resetFilter = () => {
+        setFilter({category:'', value:''})
         dispatch(getAllPackages());
     } 
 
     if(isLoading) return (
         <div className="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
         </div>
     )
 
@@ -37,6 +51,10 @@ export const Packages = () => {
         </div>
     )
 
+    const handleSelectClick = (category, value) => {
+        setFilter({category:category, value:value})
+    } 
+
   return (
     <>
     <div className='container'>
@@ -45,9 +63,19 @@ export const Packages = () => {
                     Filtrar
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a className="dropdown-item" href="#">Destino</a></li>
-                    <li><a className="dropdown-item" href="#">Fecha comienzo</a></li>
-                    <li><a className="dropdown-item" href="#">Precio</a></li>
+                        <li>
+                            <a className="dropdown-item" href="#">Destino</a>
+                            <ul className='submenu-filtros'>
+                                <li onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
+                                <li onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a className="dropdown-item" href="#">Fecha comienzo</a>
+                        </li>
+                        <li>
+                            <a className="dropdown-item" href="#">Precio</a>
+                        </li>
                     </ul>
                     <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Reset </a>
         </div>
@@ -55,7 +83,7 @@ export const Packages = () => {
         <div className='container'>        
         <div className="row row-cols-3">    
             {
-                packages.map( (element) => (                    
+                packFilter.map( (element) => (                    
                         <div>
                                 <PackageCard key={element.id} { ...element }/>
                         </div>
