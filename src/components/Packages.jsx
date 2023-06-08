@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
-import { getPackageByDestiny, getPackageByPrice, getPackageByDate } from '../utils/getdata';
+
 
 const MY_SELECT_DATA = [
   {
@@ -44,6 +44,38 @@ const MY_SELECT_DATA = [
   },
 ];
 
+// TODO: falta terminar de armar bien la estructura para que quede como la de ashiba
+const armarEstrctura = (arrayPaquetes) => {
+
+    let destinos = []
+    let precios = []
+    let comienzos = []
+
+    arrayPaquetes.forEach(paquete => {
+        const { destino, precio, comienzo } = paquete
+
+        destinos.push(destino)
+        precios.push(precio)
+        comienzos.push(comienzo)
+    })
+
+    const categorias = [
+        {
+            groupName: "destino",
+            items: [...new Set(destinos)].map(item => ({name: item, value: item}))
+        },
+        {
+            groupName: "fecha",
+            items: [...new Set(comienzos)].map(item => ({name: item, value: item}))
+        },
+        {
+            groupName: "precio",
+            items: [...new Set(precios)].map(item => ({name: item, value: item}))
+        }
+    ]
+
+    console.log(categorias)
+}
 
 export const Packages = () => {
 
@@ -55,15 +87,16 @@ export const Packages = () => {
     //se almacena los paquetes en el estado global
     const { packages, isLoading } = useSelector(state => state.package);
 
+    //myEstructuraFacherita = armarEstrctura(packages)
+
     useEffect(() => {
        if (packages.length === 0) dispatch(getAllPackages())
     }, [])
 
     useEffect( () => {
         const filterPackage = () => {
+            // TODO: Falta agregar condicionales para que el tipo de filtro (usando <, >, ===, tolowerCase) dependa de la categoría
             const packagesFilter = packages.filter(pack => pack[filter.category]?.toLowerCase() === filter?.value?.toLowerCase()) 
-
-            console.log(packagesFilter)
 
             if (packagesFilter.length===0){
                 setPackageFilter(packages)
@@ -158,13 +191,3 @@ function Filter ({groupsData, handleSelect}) {
     </div>
   )
 }
-
-// async function funcionAsincrona (category, value) {
-//   let paquetesTraidos = []
-    
-//   if (category === "destino") paquetesTraidos = await getPackageByDestiny(value)
-//   if (category === "comienzo") paquetesTraidos = await getPackageByDate(value)
-//   if (category === "precio") paquetesTraidos = await getPackageByPrice(value)
-    
-//   console.log({paquetesTraidos})
-// }
