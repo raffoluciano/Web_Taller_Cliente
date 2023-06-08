@@ -2,20 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
-import { getPackage } from '../utils/getdata';
+import { getPackageByDestiny, getPackageByPrice, getPackageByDate } from '../utils/getdata';
 
 const MY_SELECT_DATA = [
   {
     groupName: "destino",
     items: [
-      {
-        name: "bariloche",
-        value: "bariloche",
-      },
-      {
-        name: "tilcara",
-        value: "tilcara",
-      },
+      {name: "bariloche", value: "bariloche"},
+      {name: "caribe", value: "caribe"},
     ],
   },
   {
@@ -67,7 +61,10 @@ export const Packages = () => {
 
     useEffect( () => {
         const filterPackage = () => {
-            const packagesFilter = packages.filter(pack => pack[filter.category]===filter.value) 
+            const packagesFilter = packages.filter(pack => pack[filter.category]?.toLowerCase() === filter?.value?.toLowerCase()) 
+
+            console.log(packagesFilter)
+
             if (packagesFilter.length===0){
                 setPackageFilter(packages)
             }
@@ -115,11 +112,11 @@ export const Packages = () => {
       <div className="container">
         <div className="row row-cols-3">
           {
-            // packFilter.map( (element) => (
-            //         <div>
-            //                 <PackageCard key={element.id} { ...element }/>
-            //         </div>
-            //     ))
+             packFilter.map( (element) => (
+                     <div>
+                             <PackageCard key={element.id} { ...element }/>
+                     </div>
+                 ))
           }
         </div>
       </div>
@@ -161,3 +158,13 @@ function Filter ({groupsData, handleSelect}) {
     </div>
   )
 }
+
+// async function funcionAsincrona (category, value) {
+//   let paquetesTraidos = []
+    
+//   if (category === "destino") paquetesTraidos = await getPackageByDestiny(value)
+//   if (category === "comienzo") paquetesTraidos = await getPackageByDate(value)
+//   if (category === "precio") paquetesTraidos = await getPackageByPrice(value)
+    
+//   console.log({paquetesTraidos})
+// }
