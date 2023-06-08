@@ -3,78 +3,86 @@ import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
 
+//   destino: {
+//     items: [
+//       {name: "bariloche", value: "bariloche"},
+//       {name: "caribe", value: "caribe"},
+//     ],
+//   },
+//   fecha: {
+//     items: [
+//       {
+//         name: "Menos 60 días",
+//         value: 60,
+//       },
+//       {
+//         name: "Menos 45 días",
+//         value: 45,
+//       },
+//       {
+//         name: "Menos 30 días",
+//         value: 30,
+//       },
+//     ],
+//   },
+//   precio: {
+//     items: [
+//       {
+//         name: "Hasta 50 mil",
+//         value: 50000,
+//       },
+//       {
+//         name: "Hasta 70 mil",
+//         value: 70000,
+//       },
+//     ],
+//   },
+// };
 
-const MY_SELECT_DATA = [
-  {
-    groupName: "destino",
-    items: [
-      {name: "bariloche", value: "bariloche"},
-      {name: "caribe", value: "caribe"},
-    ],
-  },
-  {
-    groupName: "fecha",
-    items: [
-      {
-        name: "Menos 60 días",
-        value: 60,
-      },
-      {
-        name: "Menos 45 días",
-        value: 45,
-      },
-      {
-        name: "Menos 30 días",
-        value: 30,
-      },
-    ],
-  },
-  {
-    groupName: "precio",
-    items: [
-      {
-        name: "Hasta 50 mil",
-        value: 50000,
-      },
-      {
-        name: "Hasta 70 mil",
-        value: 70000,
-      },
-    ],
-  },
-];
+function formarTexto (listOfWords, value) {  
+  if (!listOfWords || listOfWords.length === 0) return value
+  
+  const listCopy = [...listOfWords]
+  listCopy.splice(1, 0, value)
+  return listCopy.join(" ")
+}
 
 // TODO: falta terminar de armar bien la estructura para que quede como la de ashiba
 const armarEstrctura = (arrayPaquetes) => {
 
-    let destinos = []
-    let precios = []
-    let comienzos = []
+    let destinos = new Set()
+    let precios = new Set()
+    let comienzos = new Set()
 
     arrayPaquetes.forEach(paquete => {
         const { destino, precio, comienzo } = paquete
 
-        destinos.push(destino)
-        precios.push(precio)
-        comienzos.push(comienzo)
+        if (!destinos.has(destino)) destinos.add(destino)
+        if (!precios.has(precio)) precios.add(precio)
+        if (!comienzos.has(comienzo)) comienzos.add(comienzo)
     })
 
-    const categorias = [
-        {
-            groupName: "destino",
-            items: [...new Set(destinos)].map(item => ({name: item, value: item}))
-        },
-        {
-            groupName: "fecha",
-            items: [...new Set(comienzos)].map(item => ({name: item, value: item}))
-        },
-        {
-            groupName: "precio",
-            items: [...new Set(precios)].map(item => ({name: item, value: item}))
-        }
-    ]
+    const categorias = {
+      // Descomentar los items harcodeados y comentar los de abajo. Así se prueba
+      // si amra bien la estructura con los paquetes que están en el estado global
+      // y llegan por el parámetros "arrayPaquetes"
+      destino: {
+        // items: [...destinos],
+        items: ["Bariloche", "Tilcara"]
+      },
+      fecha: {
+        listOfWords: ["Menos de", "días"],
+        // items: [...comienzos],
+        items: ["12-dic"]
+      },
+      precio: {
+        listOfWords: ["Hasta"],
+        // items: [...precios],
+        items: [80000, 20000]
+      }
+    }
 
-    console.log(categorias)
+    return categorias || {}
 }
 
 export const Packages = () => {
@@ -87,7 +95,7 @@ export const Packages = () => {
     //se almacena los paquetes en el estado global
     const { packages, isLoading } = useSelector(state => state.package);
 
-    //myEstructuraFacherita = armarEstrctura(packages)
+    const myEstructuraFacherita = armarEstrctura(packages)
 
     useEffect(() => {
        if (packages.length === 0) dispatch(getAllPackages())
@@ -137,7 +145,7 @@ export const Packages = () => {
   return (
     <>
       <div className="container">
-        <Filter handleSelect={handleSelectClick} groupsData={MY_SELECT_DATA} />
+        <Filter handleSelect={handleSelectClick} groupsData={myEstructuraFacherita} />
         <a className="btn btn-secondary ms-1" role="button" onClick={resetFilter}>
           {" "}Reset{" "}
         </a>
@@ -172,21 +180,24 @@ function Filter ({groupsData, handleSelect}) {
         Filter
       </a>
       <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        {groupsData.map((group) => (
-          <li key={group.groupName}>
-              <p className="dropdown-item" href="#">{group.groupName}</p>
-              <ul className='submenu-filtros'>
-                  {group.items.map(item => 
-                    <li
-                      key={item.value}
-                      onClick={() => handleSelect(group.groupName, item.value)}
-                    >
-                      {item.name}
-                    </li>
-                  )}
-              </ul>
-          </li>
-        ))}
+        {
+          Object.entries(groupsData)
+            .map(([groupName, groupData]) => (
+              <li key={groupName}>
+                <p className="dropdown-item">{groupName}</p>
+                <ul className='submenu-filtros'>
+                    {groupData?.items.map(item => 
+                      <li
+                        key={item}
+                        onClick={() => handleSelect(groupName, item)}
+                      >
+                        {formarTexto(groupData.listOfWords, item)}
+                      </li>
+                    )}
+                </ul>
+              </li>
+            ))
+          } 
       </ul>
     </div>
   )
