@@ -32,7 +32,7 @@ const Navbar = () =>{
         if (searchValue === '' || searchValue === null) return 
         
         const upercaseSearchValue = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
-
+        console.log(upercaseSearchValue);
         const isPackagePath = currentPath.includes('packages');
 
         if ( isPackagePath ) {
@@ -61,8 +61,10 @@ return (
           <Link to="/packages"><li><a>Paquetes</a></li></Link>
           <Link to="/contact"><li><a>Contacto</a></li></Link>
         </ul>
+        <button className='logout-button' onClick={onLogout}> salir </button>
       </div>
       <div className="navbar-search">
+
       <input 
                   value={searchValue} 
                   onChange={handleChange}

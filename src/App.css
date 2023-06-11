@@ -504,3 +504,36 @@ footer{
         height: 15px;
       }
 }
+
+.logout-button {
+  
+ 
+  background-color: #4CAF50;
+    
+   
+  color: white;
+    
+   
+  border: none;
+    
+   
+  padding: 10px 20px;
+    
+   
+  border-radius: 5px;
+    
+   
+  font-size: 16px;
+    
+   
+  cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #45a049;
+  }
+  
+  .logout-button:focus {
+    outline: none;
+  }
+  

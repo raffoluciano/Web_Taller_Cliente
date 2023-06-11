@@ -110,6 +110,12 @@ const getRoles = async() => {
     return response.data
 };
 
+const getRoleUserByEmail = async(email) => {
+    const url = `http://localhost:4000/user/role/${email}`
+    const response = await axios.get(url)
+    return response.data
+};
+
 const getRoleById = async(dni_usuario) => {
     const url = `http://localhost:4000/role/${dni_usuario}`
     const response = await axios.get(url)
@@ -178,5 +184,6 @@ export {
     getTransport, 
     getTransportById, 
     getUser, 
-    getUserByDni
+    getUserByDni,
+    getRoleUserByEmail
 }

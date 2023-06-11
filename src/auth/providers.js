@@ -1,13 +1,12 @@
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import { auth } from './firebase';
-
+import { useNavigate } from 'react-router-dom';
 
 const googleProvider = new GoogleAuthProvider();
 
 export const singInWithGoogle = async() => {
-
     try {
-        
+
         const result = await signInWithPopup(auth, googleProvider );
         // const credentials = GoogleAuthProvider.credentialFromResult( result );
         const { displayName, email, uid } = result.user;
@@ -17,7 +16,6 @@ export const singInWithGoogle = async() => {
             // User info
             displayName, email, uid
         }
-        
 
     } catch (error) {
         

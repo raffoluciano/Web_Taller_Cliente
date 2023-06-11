@@ -1,10 +1,18 @@
 import { PackageCardAdm } from "./PackageCardAdm";
 import React, { useEffect, useState } from 'react';
 import { getPackage } from '../../utils/getdata';
+import { useDispatch } from "react-redux";
+import { startLogout } from "../../store/slices/auth/thunks";
 
 const HomeAdm = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, descripcion, excursiones, hoteles, activo }) => {
 
     const [packages, setPackages] = useState([]);
+
+    const dispatch = useDispatch();
+
+    const onLogout = () => {
+        dispatch(startLogout());
+      }
 
     useEffect(() => {
         getPackage().then( data => {
@@ -16,6 +24,7 @@ const HomeAdm = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, d
     return(
         <>
             <div className="container">
+                <button onClick={onLogout}> Salir </button>
                 <h6 className="title">Administrar paquetes</h6>
                 <hr className="title"/>
                 <div className='container'>        

@@ -17,6 +17,7 @@ import UpdatePackage from "../components/administrador/UpdatePackage";
 import HomeAdm from "../components/administrador/HomeAdm";
 import DeletePackage from "../components/administrador/DeletePackage";
 import { useCheckAuth } from "../auth/useCheckAuth";
+import { useSelector } from "react-redux";
 
 
 
@@ -24,10 +25,44 @@ import { useCheckAuth } from "../auth/useCheckAuth";
 const AppRouter = () => {
 
   const status = useCheckAuth();
+  const { rol } = useSelector( state => state.auth );
 
-  // if ( status === 'checking' ) {
-  //   return <h1>Cargando</h1>
-  // }
+  if ( status === 'checking' ) {
+    return <h1>Cargando</h1>
+  }
+
+  if(status === 'authenticated' && rol === 'administrador') {
+    return(
+      <>
+        <Routes>
+          <Route path="/HomeAdm" element={<HomeAdm />}/>
+          <Route path="/add" element={<AddPackage />} />
+          <Route path="/update/:id" element={<UpdatePackage />} />
+          <Route path="*" element={<HomeAdm />} />
+        </Routes>
+      </>
+    )
+  }
+
+  return(
+    <>
+      <Navbar/>
+
+      <Routes>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/packages" element={<Packages />}/>
+        <Route path="/package/:id" element={<Package />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/login" element={<Login />}/>
+        {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
+        <Route path="/delete/:id" element={<DeletePackage />}/>
+        <Route path="*" element={<Home />} />
+      </Routes> 
+
+      <Footer/>
+    </>
+  )
 
     // return (
     //   <>
@@ -43,10 +78,8 @@ const AppRouter = () => {
     //               <Route path="/package/:id" element={<Package />}/>
     //               <Route path="/contact" element={<Contact />}/>
     //               <Route path="/cart" element={<Cart />}/>
-    //               {/* <Route path="/login" element={<Login />}/> */}
-    //               <Route path="/add" element={<AddPackage />} />
-    //               <Route path="/update/:id" element={<UpdatePackage />} />
-    //               <Route path="/HomeAdm" element={<HomeAdm />}/>
+    //               <Route path="/login" element={<Login />}/>
+    //               {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
     //               <Route path="/delete/:id" element={<DeletePackage />}/>
     //               <Route path="*" element={<Home />} />
     //             </Routes> 
@@ -54,36 +87,50 @@ const AppRouter = () => {
     //             <Footer/>
     //         </div>
     //       )
-    //       : ( <Routes>
-    //             <Route path="/*" element={ <Login /> } />
-    //           </Routes>   
+    //       : ( <div>
+
+    //         <Navbar/>
+    //         <Routes>
+    //               <Route path="/home" element={<Home />}/>
+    //                 <Route path="/packages" element={<Packages />}/>
+    //                 <Route path="/package/:id" element={<Package />}/>
+    //                 <Route path="/contact" element={<Contact />}/>
+    //                 <Route path="/cart" element={<Cart />}/>
+    //                 <Route path="/login" element={<Login />}/>
+    //                 {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
+    //                 <Route path="/delete/:id" element={<DeletePackage />}/>
+    //                 <Route path="*" element={<Home />} />
+    //             </Routes>  
+    //             <Footer/> 
+    //       </div>
+              
     //       )
     //     }
 
     //   </>
-    //);
+    // );
 
-    return (<div className="AppRouter">
-            <Navbar/>
+//     return (<div className="AppRouter">
+//             <Navbar/>
 
-            <Routes>
-              <Route path="/home" element={<Home />}/>
-              <Route path="/packages" element={<Packages />}/>
-              <Route path="/package/:id" element={<Package />}/>
-              <Route path="/contact" element={<Contact />}/>
-              <Route path="/cart" element={<Cart />}/>
-              <Route path="/login" element={<Login />}/>
-              <Route path="/register" element={<Register />}/>
-              <Route path="/add" element={<AddPackage />} />
-              <Route path="/update/:id" element={<UpdatePackage />} />
-              <Route path="/HomeAdm" element={<HomeAdm />}/>
-              <Route path="/delete/:id" element={<DeletePackage />}/>
-              <Route path="*" element={<Home />} />
-            </Routes> 
+//             <Routes>
+//               <Route path="/home" element={<Home />}/>
+//               <Route path="/packages" element={<Packages />}/>
+//               <Route path="/package/:id" element={<Package />}/>
+//               <Route path="/contact" element={<Contact />}/>
+//               <Route path="/cart" element={<Cart />}/>
+//               <Route path="/login" element={<Login />}/>
+//               <Route path="/register" element={<Register />}/>
+//               <Route path="/add" element={<AddPackage />} />
+//               <Route path="/update/:id" element={<UpdatePackage />} />
+//               <Route path="/HomeAdm" element={<HomeAdm />}/>
+//               <Route path="/delete/:id" element={<DeletePackage />}/>
+//               <Route path="*" element={<Home />} />
+//             </Routes> 
 
-            <Footer/>
-        </div>
-        );
+//             <Footer/>
+//         </div>
+//         );
 }
 
 export default AppRouter;
@@ -101,23 +148,22 @@ const [users, setUsers] = useState([]);
 
 //EJ PARA PROBAR SI TRAE LOS DATOS DE LAS FUNCIONES QUE RECIBEN UN PARAMETRO ID
 
-/*
-  const id = 1
-  const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    const consultarApi = async() => {
-      setUsers (await getPackageById(id));
-    }
-    consultarApi();
-  },[])
+  // const id = 1
+  // const [users, setUsers] = useState([]);
+
+  // useEffect(() => {
+  //   const consultarApi = async() => {
+  //     setUsers (await getPackageById(id));
+  //   }
+  //   consultarApi();
+  // },[])
 
 
-  <ul>
-          {
-            users.map(user => (
-              <li key={user.id}>{user.descripcion}</li>) //cambiar el campo dni a id, y el otro que se quiera mostrar p/prueba
-            )
-          }
-  </ul>
-*/
+  // <ul>
+  //         {
+  //           users.map(user => (
+  //             <li key={user.id}>{user.descripcion}</li>) //cambiar el campo dni a id, y el otro que se quiera mostrar p/prueba
+  //           )
+  //         }
+  // </ul>
