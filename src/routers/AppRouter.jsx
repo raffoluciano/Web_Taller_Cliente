@@ -55,6 +55,7 @@ const AppRouter = () => {
         <Route path="/contact" element={<Contact />}/>
         <Route path="/cart" element={<Cart />}/>
         <Route path="/login" element={<Login />}/>
+        <Route path="/register" element={<Register/>}/>
         {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
         <Route path="/delete/:id" element={<DeletePackage />}/>
         <Route path="*" element={<Home />} />

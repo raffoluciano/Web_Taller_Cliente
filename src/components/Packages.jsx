@@ -65,16 +65,32 @@ export const Packages = () => {
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
                             <a className="dropdown-item" href="#">Destino</a>
-                            <ul className='submenu-filtros'>
+                            <ul className='dropdown-subitem'>
                                 <li onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
                                 <li onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Capital Federal' )}}>Capital Federal</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Ushuaia' )}}>Ushuaia</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Río de Janeiro' )}}>Río de Janeiro</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Norte Argentino' )}}>Norte Argentino</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Parque de la Costa' )}}>Parque de la Costa</li>
+                                <li onClick={() => {handleSelectClick('destino', 'El Tigre' )}}>El Tigre</li>
+                                <li onClick={() => {handleSelectClick('destino', 'La boca' )}}>La boca</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Federación' )}}>Federación</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Palmar' )}}>Palmar</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Cataratas del Iguazú' )}}>Cataratas del Iguazú</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Tecnopolis' )}}>Tecnopolis</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Temaiken' )}}>Temaiken</li>
+                                <li onClick={() => {handleSelectClick('destino', 'China' )}}>China</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Francia' )}}>Francia</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Italia' )}}>Italia</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Grecia' )}}>Grecia</li>
+                                <li onClick={() => {handleSelectClick('destino', 'España' )}}>España</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Mendoza' )}}>Mendoza</li>
+                                <li onClick={() => {handleSelectClick('destino', 'India' )}}>India</li>
+                                <li onClick={() => {handleSelectClick('destino', 'Colombia' )}}>Colombia</li>
+
+
                             </ul>
-                        </li>
-                        <li>
-                            <a className="dropdown-item" href="#">Fecha comienzo</a>
-                        </li>
-                        <li>
-                            <a className="dropdown-item" href="#">Precio</a>
                         </li>
                     </ul>
                     <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Reset </a>

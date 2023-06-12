@@ -15,7 +15,7 @@ const Navbar = () =>{
 
      const [searchValue, setSearchValue] = useState('');
      const { email } = useSelector(state => state.auth);
-
+     //console.log({email});
      const navigate = useNavigate();
      const location = useLocation();
 
@@ -61,7 +61,7 @@ return (
           <Link to="/packages"><li><a>Paquetes</a></li></Link>
           <Link to="/contact"><li><a>Contacto</a></li></Link>
         </ul>
-        <button className='logout-button' onClick={onLogout}> salir </button>
+        {email && <button className='logout-button' onClick={onLogout}> salir </button>}
       </div>
       <div className="navbar-search">
 
