@@ -7,6 +7,7 @@ export const CartProvider = (props) => {
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
+    alert('Producto agregado correctamente al carrito')
   };
 
   const removeFromCart = (index) => {
