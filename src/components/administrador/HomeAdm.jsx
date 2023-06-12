@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { getPackage } from '../../utils/getdata';
 import { useDispatch } from "react-redux";
 import { startLogout } from "../../store/slices/auth/thunks";
+import { useNavigate } from "react-router-dom";
 
 const HomeAdm = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, descripcion, excursiones, hoteles, activo }) => {
 
     const [packages, setPackages] = useState([]);
 
     const dispatch = useDispatch();
+
+    const navigation = useNavigate();
 
     const onLogout = () => {
         dispatch(startLogout());
@@ -25,6 +28,7 @@ const HomeAdm = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, d
         <>
             <div className="container">
                 <button onClick={onLogout}> Salir </button>
+                <button onClick={() => navigation('/add')} style={{marginTop: 4}}> Nuevo Paquete </button>
                 <h6 className="title">Administrar paquetes</h6>
                 <hr className="title"/>
                 <div className='container'>        
