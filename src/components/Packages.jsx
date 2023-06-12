@@ -64,32 +64,30 @@ export const Packages = () => {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a className="dropdown-item" href="#">Destino</a>
-                            <ul className='dropdown-subitem'>
-                                <li onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
-                                <li onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Capital Federal' )}}>Capital Federal</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Ushuaia' )}}>Ushuaia</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Río de Janeiro' )}}>Río de Janeiro</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Norte Argentino' )}}>Norte Argentino</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Parque de la Costa' )}}>Parque de la Costa</li>
-                                <li onClick={() => {handleSelectClick('destino', 'El Tigre' )}}>El Tigre</li>
-                                <li onClick={() => {handleSelectClick('destino', 'La boca' )}}>La boca</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Federación' )}}>Federación</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Palmar' )}}>Palmar</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Cataratas del Iguazú' )}}>Cataratas del Iguazú</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Tecnopolis' )}}>Tecnopolis</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Temaiken' )}}>Temaiken</li>
-                                <li onClick={() => {handleSelectClick('destino', 'China' )}}>China</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Francia' )}}>Francia</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Italia' )}}>Italia</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Grecia' )}}>Grecia</li>
-                                <li onClick={() => {handleSelectClick('destino', 'España' )}}>España</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Mendoza' )}}>Mendoza</li>
-                                <li onClick={() => {handleSelectClick('destino', 'India' )}}>India</li>
-                                <li onClick={() => {handleSelectClick('destino', 'Colombia' )}}>Colombia</li>
-
-
+                            <a className="dropdown-item">Destino</a>
+                            <ul>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Capital Federal' )}}>Capital Federal</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Ushuaia' )}}>Ushuaia</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Río de Janeiro' )}}>Río de Janeiro</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Norte Argentino' )}}>Norte Argentino</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Parque de la Costa' )}}>Parque de la Costa</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'El Tigre' )}}>El Tigre</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'La boca' )}}>La boca</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Federación' )}}>Federación</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Palmar' )}}>Palmar</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Cataratas del Iguazú' )}}>Cataratas del Iguazú</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Tecnopolis' )}}>Tecnopolis</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Temaiken' )}}>Temaiken</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'China' )}}>China</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Francia' )}}>Francia</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Italia' )}}>Italia</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Grecia' )}}>Grecia</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'España' )}}>España</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Mendoza' )}}>Mendoza</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'India' )}}>India</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Colombia' )}}>Colombia</li>
                             </ul>
                         </li>
                     </ul>
