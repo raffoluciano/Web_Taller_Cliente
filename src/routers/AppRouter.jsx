@@ -18,6 +18,7 @@ import HomeAdm from "../components/administrador/HomeAdm";
 import DeletePackage from "../components/administrador/DeletePackage";
 import { useCheckAuth } from "../auth/useCheckAuth";
 import { useSelector } from "react-redux";
+import NavbarAdm from "../components/ui/navbarAdm";
 
 
 
@@ -34,12 +35,14 @@ const AppRouter = () => {
   if(status === 'authenticated' && rol === 'administrador') {
     return(
       <>
+      <NavbarAdm>
         <Routes>
           <Route path="/HomeAdm" element={<HomeAdm />}/>
           <Route path="/add" element={<AddPackage />} />
           <Route path="/update/:id" element={<UpdatePackage />} />
           <Route path="*" element={<HomeAdm />} />
         </Routes>
+        </NavbarAdm>
       </>
     )
   }

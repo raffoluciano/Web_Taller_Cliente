@@ -27,8 +27,6 @@ const HomeAdm = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id, d
     return(
         <>
             <div className="container">
-                <button onClick={onLogout}> Salir </button>
-                <button onClick={() => navigation('/add')} style={{marginTop: 4}}> Nuevo Paquete </button>
                 <h6 className="title">Administrar paquetes</h6>
                 <hr className="title"/>
                 <div className='container'>        

@@ -15,16 +15,18 @@ const DeletePackage = () => {
   
   const [info, setInfo] = useState(null);
 
+  const [images, setImages] = useState([]);
 
   useEffect( () => {
-      const packageinfo = async () => {
-          const inf = await getPackageById(id);
-          setInfo(inf[0])
-      }
-      packageinfo();
-     
-  }, []);
-
+    const packageinfo = async () => {
+        const inf = await getPackageById(id);
+        const imagen = [inf[0].imagen1, inf[0].imagen2, inf[0].imagen3];
+        setInfo(inf[0])
+        setImages(imagen)
+    }
+    packageinfo();
+ 
+}, []);
   if(!info){
       return <h1>Cargando</h1>
   }
@@ -47,10 +49,11 @@ const DeletePackage = () => {
                 <hr className="title"/>
                 <div className="row justify-content-evenly">
                     <div className="col-4">
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    <img src={logo} className="img-fluid" alt="..."/>
-                    
+                    {
+                           images.map(image =>(
+                                <img key={image} src={`http://localhost:4000/images/${image}`} className="img-fluid" alt="..."/>
+                           ))
+                        }                    
                     </div>
                     <div className="col-4">
                     <p className="detalle"><b>{info.nombre}</b></p>
