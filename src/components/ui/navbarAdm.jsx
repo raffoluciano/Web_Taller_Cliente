@@ -28,7 +28,7 @@ return (
       <div className="navbar-links">
         <ul>
           <Link to="/HomeAdm"><li>Inicio</li></Link>
-          <Link to="/Agregar"><li><a>Agregar</a></li></Link>
+          <Link to="/add"><li><a>Agregar</a></li></Link>
         </ul>
         {email && <button className='logout-button' onClick={onLogout}> salir </button>}
       </div>

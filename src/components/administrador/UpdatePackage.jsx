@@ -11,13 +11,16 @@ const UpdatePackage = ({ data }) => {
 
   const { id } = useParams();
   const [info, setInfo] = useState(null);
-   const [formData, setFormData] = useState(data);
-                  
+  const [formData, setFormData] = useState(data);
+  const [images, setImages] = useState([]);
+
   useEffect(() => {
     const packageinfo = async () => {
       const inf = await getPackageById(id);
+      const imagen = [inf[0].imagen1, inf[0].imagen2, inf[0].imagen3];
       setInfo(inf[0]);
       setFormData(inf[0]);
+      setImages(imagen)
     };
     packageinfo();
   }, [id]);
@@ -60,9 +63,11 @@ const UpdatePackage = ({ data }) => {
         <hr className="title"/>
         <div className="row justify-content-evenly">
           <div className="col-4">
-            <img src={logo} className="img-fluid" alt="..."/>
-            <img src={logo} className="img-fluid" alt="..."/>
-            <img src={logo} className="img-fluid" alt="..." />
+            {
+                           images.map(image =>(
+                                <img key={image} src={`http://localhost:4000/images/${image}`} className="img-fluid" alt="..."/>
+                           ))
+                        }
           </div>
           <div className="col-4">
             <label htmlFor="inputName" className="form-label">Nombre</label>
