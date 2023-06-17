@@ -35,14 +35,15 @@ const AppRouter = () => {
   if(status === 'authenticated' && rol === 'administrador') {
     return(
       <>
-      <NavbarAdm>
+      <NavbarAdm/>
         <Routes>
           <Route path="/HomeAdm" element={<HomeAdm />}/>
           <Route path="/add" element={<AddPackage />} />
           <Route path="/update/:id" element={<UpdatePackage />} />
+          <Route path="/delete/:id" element={<DeletePackage />}/>
           <Route path="*" element={<HomeAdm />} />
         </Routes>
-        </NavbarAdm>
+        
       </>
     )
   }
@@ -60,7 +61,7 @@ const AppRouter = () => {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register/>}/>
         {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
-        <Route path="/delete/:id" element={<DeletePackage />}/>
+        
         <Route path="*" element={<Home />} />
       </Routes> 
 
