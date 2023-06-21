@@ -81,14 +81,14 @@ const getPackageByDestiny = async(destino) => {
     const response = await axios.get(url)
     return response.data
 }
-/*
+
 const getPackageByDate = async(comienzo) => {
     //desde det fecha
     const url = `http://localhost:4000/package/date/${comienzo}`
     const response = await axios.get(url)
     return response.data
 }
-
+/*
 const getPackageByPrice = async(precio) => {
     //hasta det precio
     const url = `http://localhost:4000/package/price/${precio}`
@@ -176,6 +176,7 @@ export {
     getPackage,
     getPackageById,
     getPackageByDestiny,
+    getPackageByDate,
     getPromotion, 
     getRoles,
     getRoleById,

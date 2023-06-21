@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DestinyCard } from './DestinyCard';
+import { HotelCard } from './HotelCard';
 import { getHotel, getDestiny, getPackage } from '../utils/getdata';
 import foto1 from '../../public/descarga.jpg';
 
@@ -10,7 +11,7 @@ export const Home = () => {
 
  
   useEffect(() => {
-      getHotel().then( data => {
+      getPackage().then( data => {
           setHotel(data);
       })
       .catch( error => console.log(error));
@@ -32,6 +33,9 @@ export const Home = () => {
     if (destiny.length > 4) {
       destiny.length = 4;
     }
+
+
+
   return(
     <>
       <div className="container">
@@ -46,16 +50,22 @@ export const Home = () => {
               ))
              }
           </div>
+   
       </div>
+      
       <div className="container1">
-      <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img src={foto1} className="imagen-carrusel" alt="..."/>
-          </div>
-          </div>
-        </div>
+      <h6 className="title1">Algunos de nuestros hoteles</h6>
+      <hr className="title1"/>
+            {
+              hotel.map( (element) => (
+                <div key={element.id} className='hoteles-item'>
+                  <HotelCard { ...element}/>
+                </div>
+              ))
+            }
       </div>
+
+
     </>
     );
 }

@@ -30,7 +30,7 @@ return (
           <Link to="/HomeAdm"><li>Inicio</li></Link>
           <Link to="/add"><li><a>Agregar</a></li></Link>
         </ul>
-        {email && <button className='logout-button' onClick={onLogout}> salir </button>}
+        {email && <button className='logout-button' onClick={onLogout}> Salir </button>}
       </div>
       <div className="navbar-img">
       <Link to="/login"><img src={user}/></Link>

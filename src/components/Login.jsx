@@ -63,7 +63,7 @@ const Login = () => {
               style={{ backgroundColor: 'red' }}
               onClick={onLogignWithGoogle}
             >
-              Iniciar Sesión con google
+              Iniciar sesión con google
             </button>
           </form>
         </div>
