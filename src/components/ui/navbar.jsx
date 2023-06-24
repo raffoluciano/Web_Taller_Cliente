@@ -60,7 +60,7 @@ return (
           <Link to="/packages"><li><a>Paquetes</a></li></Link>
           <Link to="/contact"><li><a>Contacto</a></li></Link>
         </ul>
-        {email && <button className='logout-button' onClick={onLogout}> Salir </button>}
+        {email && <button className='button' onClick={onLogout}> Salir </button>}
       </div>
       <div className="navbar-search">
 
