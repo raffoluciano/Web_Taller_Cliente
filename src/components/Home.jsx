@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { DestinyCard } from './DestinyCard';
 import { HotelCard } from './HotelCard';
-import { getHotel, getDestiny, getPackage } from '../utils/getdata';
+import { getHotel, getDestiny, getPackage, getPackageByDate } from '../utils/getdata';
 import foto1 from '../../public/descarga.jpg';
+import { PackagesHome } from './PackagesHome';
 
 
 export const Home = () => {
@@ -25,6 +26,16 @@ export const Home = () => {
       })
       .catch( error => console.log(error));
   }, [])
+
+  const [paquete, setPaquete] = useState([]);
+  
+  useEffect(() => {
+    getPackage().then( data => {
+        setPaquete(data);
+    })
+    .catch( error => console.log(error));
+}, [])
+
     
     if (hotel.length > 4) {
       hotel.length = 4;
@@ -32,6 +43,10 @@ export const Home = () => {
 
     if (destiny.length > 4) {
       destiny.length = 4;
+    }
+
+    if (paquete.length > 4) {
+      paquete.length = 4;
     }
 
 
@@ -52,10 +67,23 @@ export const Home = () => {
           </div>
    
       </div>
-      
-      <div className="container1">
-      <h6 className="title1">Algunos de nuestros hoteles</h6>
-      <hr className="title1"/>
+
+      <div className="container">
+      <h6 className="title">Algunos de nuestros hoteles</h6>
+      <hr className="title"/>
+            {
+              paquete.map( (element) => (
+                <div key={element.id}>
+                  <PackagesHome { ...element}/>
+                </div>
+              ))
+            }
+      </div>
+
+
+      <div className="container">
+      <h6 className="title">Algunos de nuestros hoteles</h6>
+      <hr className="title"/>
             {
               hotel.map( (element) => (
                 <div key={element.id} className='hoteles-item'>

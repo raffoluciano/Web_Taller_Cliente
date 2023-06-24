@@ -54,20 +54,17 @@ const Cart = () => {
                         return (
                             <div key={index} className="card shadow-lg mb-3 bg-white rounded">
                                 <div className="row">
-                                    <div className="col-md-4">
-                                        <img className="img-fluid" src={`http://localhost:4000/images/${item.imagen1}`} alt="Logo"/>
-                                    </div>
+                                        <img className="col-md-4" src={`http://localhost:4000/images/${item.imagen1}`} alt="Logo"/>
                                     <div className="col-md-8">
-                                        <div className="card-body">
-                                            
+                                        <div className='card-body'>
                                             <h6 className="card-title">{item.nombre}</h6> {/* Muestra el nombre del paquete */}
-                                            <h2 className="card-title">{date(item.comienzo)}</h2> {/* Muestra la fecha del paquete */}
-                                            <div className="col-md-3 offset-md-3 align-self-end">${item.precio}</div> {/* Muestra el precio del paquete */}
-                                            <button onClick={() => removeFromCart(index)}>Eliminar</button>
+                                            <h5>{date(item.comienzo)}</h5> {/* Muestra la fecha del paquete */}    
+                                            <h5>${item.precio}</h5> {/* Muestra el precio del paquete */}
                                         </div>
+                                        <button className='boton-eliminar' onClick={() => removeFromCart(index)}>Eliminar</button>
                                     </div>
-                                </div>
-                            </div>
+                                    </div>
+                                        </div>
                         )
                     })}
                     <div>
@@ -102,5 +99,3 @@ const Cart = () => {
 }
 
 export default Cart;
-
-

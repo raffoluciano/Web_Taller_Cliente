@@ -91,7 +91,7 @@ export const Packages = () => {
                             </ul>
                         </li>
                     </ul>
-                    <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Reset </a>
+                    <a className="btn btn-secondary ms-1"  role="button" onClick={resetFilter}> Borrar filtros </a>
         </div>
         </div>
         <div className='container'>        
