@@ -295,6 +295,16 @@ footer{
     object-fit: cover;
   }
 
+  .card-body{
+    text-align: center;
+  }
+
+  .boton-eliminar{
+    margin-top: 15px;
+    width: 180px;
+    margin-left: 240px;
+  }
+
 
 @media (max-width: 768px) {
     .navbar {
@@ -523,7 +533,7 @@ footer{
   background-color: #49c1a2;
   border-radius: 5px;
   cursor: pointer;
-  /* margin-left: 108%; */
+  margin-left: 108%;
 
   }
 

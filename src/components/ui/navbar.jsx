@@ -8,7 +8,6 @@ import { getPackageByDestiny } from '../../utils/getdata';
 import { getPackagesByNameDestiny } from '../../store/slices/package';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../store/slices/auth/thunks';
-import { FaBeer } from 'react-icons/fa';
 
 
 const Navbar = () =>{
@@ -61,7 +60,7 @@ return (
           <Link to="/packages"><li><a>Paquetes</a></li></Link>
           <Link to="/contact"><li><a>Contacto</a></li></Link>
         </ul>
-        {/* {email && <button className='logout-button' onClick={onLogout}> Salir </button>} */}
+        {email && <button className='logout-button' onClick={onLogout}> Salir </button>}
       </div>
       <div className="navbar-search">
 
@@ -77,8 +76,6 @@ return (
       <div className="navbar-img">
         <Link to="/cart"><img src={shopping}/></Link>
         <Link to="/login"><img src={user}/></Link>
-        <FaBeer color='white' fontSize='large'/>
-        <i className="bi bi-box-arrow-left"></i>
       </div>
     </div>
   </header>
