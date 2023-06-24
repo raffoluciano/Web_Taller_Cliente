@@ -73,10 +73,12 @@ body {
 
   .navbar-img{
     width: 200px;
+    margin-right: -70px;
   }
   .navbar-img img{
-    margin: 20px;
+    margin: 15px;
     height: 28px;
+
   }
 
 .carousel-inner{
@@ -305,6 +307,13 @@ footer{
     margin-left: 240px;
   }
 
+  .login-button{
+    background-color: #49c1a2;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: -10%;
+    padding: 0px 55px;
+  }
 
 @media (max-width: 768px) {
     .navbar {
