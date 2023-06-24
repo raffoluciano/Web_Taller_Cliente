@@ -56,19 +56,21 @@ const Cart = () => {
                                 <div className="row">
                                         <img className="col-md-4" src={`http://localhost:4000/images/${item.imagen1}`} alt="Logo"/>
                                     <div className="col-md-8">
-                                        <div className='card-body'>
-                                            <h6 className="card-title">{item.nombre}</h6> {/* Muestra el nombre del paquete */}
-                                            <h5>{date(item.comienzo)}</h5> {/* Muestra la fecha del paquete */}    
-                                            <h5>${item.precio}</h5> {/* Muestra el precio del paquete */}
+                                        <div className='cart-body'>
+                                            <h6 className="card-title"><b>{item.nombre}</b></h6> {/* Muestra el nombre del paquete */}
+                                            <h5 className="card-title1"><b>Salida: </b>{date(item.comienzo)}</h5> {/* Muestra la fecha del paquete */}    
                                         </div>
+                                        <h5 className='price'><b>${item.precio}</b></h5> {/* Muestra el precio del paquete */}
                                         <button className='boton-eliminar' onClick={() => removeFromCart(index)}>Eliminar</button>
                                     </div>
                                     </div>
                                         </div>
                         )
                     })}
+                    <div className='cart-price'>
+                    <h4><b>Total de compra: ${getTotalPrice()}</b></h4>
+                    </div>
                     <div>
-                    <h4><p>Precio total: ${getTotalPrice()}</p></h4>
                         {/* <button type="button" className="btn btn-success">Finalizar compra</button> */}
                         {/* <CardPayment
                             initialization={{ amount: 10 }}
