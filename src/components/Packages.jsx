@@ -12,7 +12,6 @@ export const Packages = () => {
     const [filter, setFilter] = useState({category:'', value:''})
     
     const dispatch = useDispatch();
-    //se almacena los paquetes en el estado global
     const { packages, isLoading } = useSelector(state => state.package);
 
     useEffect(() => {
@@ -20,8 +19,8 @@ export const Packages = () => {
     }, [])
 
     useEffect( () => {
-        const filterPackage = () => {
-            const packagesFilter = packages.filter(pack => pack[filter.category]===filter.value) 
+        const filterPackageDate = () => {
+            const packagesFilter = packages.filter(pack => pack[filter.category]>=filter.value) 
             if (packagesFilter.length===0){
                 setPackageFilter(packages)
             }
@@ -30,8 +29,9 @@ export const Packages = () => {
             }
             
         };
-        filterPackage();
+        filterPackageDate();
     }, [filter, packages]);
+
 
 
     const resetFilter = () => {
@@ -64,30 +64,22 @@ export const Packages = () => {
                     </a>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <li>
-                            <a className="dropdown-item">Destino</a>
+                            <a className="dropdown-item">Salidas a partir de</a>
                             <ul>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Bariloche' )}}>Bariloche</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'California' )}}>California</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Capital Federal' )}}>Capital Federal</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Ushuaia' )}}>Ushuaia</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Río de Janeiro' )}}>Río de Janeiro</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Norte Argentino' )}}>Norte Argentino</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Parque de la Costa' )}}>Parque de la Costa</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'El Tigre' )}}>El Tigre</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'La boca' )}}>La boca</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Federación' )}}>Federación</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Palmar' )}}>Palmar</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Cataratas del Iguazú' )}}>Cataratas del Iguazú</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Tecnopolis' )}}>Tecnopolis</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Temaiken' )}}>Temaiken</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'China' )}}>China</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Francia' )}}>Francia</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Italia' )}}>Italia</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Grecia' )}}>Grecia</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'España' )}}>España</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Mendoza' )}}>Mendoza</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'India' )}}>India</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('destino', 'Colombia' )}}>Colombia</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('comienzo', '2023-08-01' )}}>Agosto</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('comienzo', '2023-09-01' )}}>Septiembre</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('comienzo', '2023-10-01' )}}>Octubre</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('comienzo', '2023-11-01' )}}>Noviembre</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('comienzo', '2023-12-01' )}}>Diciembre</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a className="dropdown-item">Duracion</a>
+                            <ul>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 3 )}}>+3 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 5 )}}>+5 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 7 )}}>+7 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 10 )}}>+10 dias</li>
                             </ul>
                         </li>
                     </ul>
