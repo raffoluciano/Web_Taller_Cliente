@@ -40,8 +40,8 @@ export const Packages = () => {
     } 
 
     if(isLoading) return (
-        <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
+        <div className='container1'>
+            <span class="loader"></span>
         </div>
     )
 
