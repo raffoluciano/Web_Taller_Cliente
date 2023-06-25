@@ -109,7 +109,7 @@ footer{
 }
 
 .container1{
-  padding: 200px 280px;
+  padding: 200px 600px;
 }
 
 .title1{
@@ -135,14 +135,6 @@ footer{
 
 .card-title{
     font-size: x-large;
-}
-
-.destinos-inicio{
-    font-size: small;
-}
-
-.ofertas-inicio{
-    font-size: small;
 }
 
 .col{
@@ -287,6 +279,10 @@ footer{
   img {
     height: 190px;
     object-fit: cover;
+  }
+
+  .carrito-vacio{
+    padding: 100px 0;
   }
 
   .cart-body{

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DestinyCard } from './DestinyCard';
-import { HotelCard } from './HotelCard';
-import { getHotel, getDestiny, getPackage, getPackageByDate } from '../utils/getdata';
-import foto1 from '../../public/descarga.jpg';
+import { getPackage } from '../utils/getdata';
 import { PackagesHome } from './PackagesHome';
 
 
@@ -36,13 +34,8 @@ export const Home = () => {
     .catch( error => console.log(error));
 }, [])
 
-    
-    if (hotel.length > 4) {
-      hotel.length = 4;
-    }
-
-    if (destiny.length > 4) {
-      destiny.length = 4;
+    if (destiny.length > 8) {
+      destiny.length = 8;
     }
 
     if (paquete.length > 4) {
@@ -69,7 +62,7 @@ export const Home = () => {
       </div>
 
       <div className="container">
-      <h6 className="title">Algunos de nuestros hoteles</h6>
+      <h6 className="title">Salidas próximas</h6>
       <hr className="title"/>
             {
               paquete.map( (element) => (
@@ -79,20 +72,6 @@ export const Home = () => {
               ))
             }
       </div>
-
-
-      <div className="container">
-      <h6 className="title">Algunos de nuestros hoteles</h6>
-      <hr className="title"/>
-            {
-              hotel.map( (element) => (
-                <div key={element.id} className='hoteles-item'>
-                  <HotelCard { ...element}/>
-                </div>
-              ))
-            }
-      </div>
-
 
     </>
     );

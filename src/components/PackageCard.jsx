@@ -1,4 +1,3 @@
-import logo from '../../public/logoAHORA.png';
 import { Link } from 'react-router-dom';
 import date from '../utils/date';
 export const PackageCard = ({imagen1, nombre, cupos, precio, salida, comienzo, duracion, fin, id }) => {

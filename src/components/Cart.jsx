@@ -1,9 +1,7 @@
 import '../App.css';
-import logo from '../../public/logoAHORA.png';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import date from '../utils/date';
-import { CardPayment, Wallet } from '@mercadopago/sdk-react';
 import { Payment } from '@mercadopago/sdk-react';
 import { initMercadoPago } from '@mercadopago/sdk-react';
 
@@ -44,11 +42,11 @@ const Cart = () => {
         <div className='container'>
             {cartItems.length === 0 ? (
                 
-                <div>
-                    <h4><p>El carrito está vacío.</p></h4>
+                <div className='carrito-vacio'>
+                    <p><b>El carrito está vacío.</b></p>
                 </div>
             ) : (
-                <div>
+                    <div>
                     {cartItems.map((item, index) => {
                         console.log({item})
                         return (
@@ -67,6 +65,7 @@ const Cart = () => {
                                         </div>
                         )
                     })}
+
                     <div className='cart-price'>
                     <h4><b>Total de compra: ${getTotalPrice()}</b></h4>
                     </div>

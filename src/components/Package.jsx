@@ -1,5 +1,4 @@
 import '../App.css';
-import logo from '../../public/logoAHORA.png';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { getPackageById } from '../utils/getdata';

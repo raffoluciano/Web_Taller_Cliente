@@ -29,7 +29,10 @@ const AppRouter = () => {
   const { rol } = useSelector( state => state.auth );
 
   if ( status === 'checking' ) {
-    return <h1>Cargando</h1>
+    <div className='container1'>
+      <span class="loader"></span>
+    </div>
+  
   }
 
   if(status === 'authenticated' && rol === 'administrador') {

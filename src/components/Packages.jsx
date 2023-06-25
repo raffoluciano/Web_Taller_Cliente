@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
-import { getPackage } from '../utils/getdata';
 
 
 export const Packages = () => {
