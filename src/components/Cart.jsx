@@ -2,10 +2,11 @@ import '../App.css';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import date from '../utils/date';
-import { Payment } from '@mercadopago/sdk-react';
+import { Payment, CardPayment, Wallet } from '@mercadopago/sdk-react';
 import { initMercadoPago } from '@mercadopago/sdk-react';
+import { useSelector } from 'react-redux';
 
-initMercadoPago('APP_USR-9f6e8024-c127-4a5d-a4a4-50af73d2540e', { locale: 'es-AR'});
+initMercadoPago('TEST-ac5dadd0-812f-4e1f-803f-edfe318724e9', { locale: 'es-AR'});
 
 const initialization = {
     amount: 100,
@@ -26,7 +27,9 @@ const initialization = {
 
 const Cart = () => {
 
-    
+    const { email } = useSelector(state => state.auth);
+
+    console.log('mail',email);
 
     const { cartItems, removeFromCart } = useContext(CartContext);
 
@@ -38,6 +41,10 @@ const Cart = () => {
         return totalPrice;
     }
 
+    const getPreferenceId = () => {
+
+    }
+
     return (
         <div className='container'>
             {cartItems.length === 0 ? (
@@ -47,6 +54,7 @@ const Cart = () => {
                 </div>
             ) : (
                     <div>
+                        <h6><b>Usuario: {email}</b></h6>
                     {cartItems.map((item, index) => {
                         console.log({item})
                         return (
@@ -100,3 +108,5 @@ const Cart = () => {
 }
 
 export default Cart;
+
+//https://www.mercadopago.com.ar/developers/es/docs/woocommerce/additional-content/test-cards
