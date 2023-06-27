@@ -1,5 +1,4 @@
 import '../../App.css';
-import logo from '../../../public/logoAHORA.png';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPackageById } from '../../utils/getdata';
@@ -26,21 +25,11 @@ const UpdatePackage = ({ data }) => {
   }, [id]);
                   
   if (!formData) {
-    return <h1>Cargando</h1>;
-  }
-                  
-  const handleUpdate = () => {
-    updatePackage(info.id)
-    .then(response => response.json())
-    .then(data => {
-      console.log('Data has been updated in the database:', data);
-      alert(`El paquete ${info.id} ha sido actulizado	 con éxito`);
-    })
-    .catch(error => {
-      console.error('Error updating data in the database:', error);
-    });
-  };
-                  
+    <div className='container1'>
+      <span class="loader"></span>
+    </div>
+  }                
+                   
   const handleChange = event => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
