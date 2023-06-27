@@ -19,8 +19,21 @@ export const Packages = () => {
 
     useEffect( () => {
         const filterPackageDate = () => {
-            const packagesFilter = packages.filter(pack => pack[filter.category]>=filter.value) 
-            if (packagesFilter.length===0){
+            let packagesFilter = []
+            if (filter.category === 'comienzo')
+                {
+                   packagesFilter = packages.filter(pack => pack[filter.category]>=filter.value)
+                }
+            if (filter.category === 'duracion')
+            {
+                packagesFilter = packages.filter(pack => pack[filter.category]<=filter.value)
+            }
+            /*if (filter.category === 'tipo')
+            {
+                packagesFilter = packages.filter(pack => pack[filter.category]===filter.value)
+            }*/
+
+            if ((packagesFilter.length===0) && (filter.category==='')){
                 setPackageFilter(packages)
             }
             else {
@@ -75,10 +88,10 @@ export const Packages = () => {
                         <li>
                             <a className="dropdown-item">Duracion</a>
                             <ul>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 3 )}}>+3 dias</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 5 )}}>+5 dias</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 7 )}}>+7 dias</li>
-                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 10 )}}>+10 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 3 )}}>Hasta 3 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 5 )}}>Hasta 5 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 7 )}}>Hasta 7 dias</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 12 )}}>Hasta 12 dias</li>
                             </ul>
                         </li>
                     </ul>
