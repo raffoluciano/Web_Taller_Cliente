@@ -28,7 +28,9 @@ const Package = () => {
     }, []);
 
     if(!info){
-        return <h1>Cargando</h1>
+        <div className='container1'>
+            <span class="loader"></span>
+        </div>
     }
 
     return(
@@ -51,6 +53,7 @@ const Package = () => {
                     <p className="detalle"> Fecha inicio: {date(info.comienzo)}  </p>
                     <p className="detalle"> Fecha fin: {date(info.fin)} </p>
                     <p className="detalle"> Lugar de salida: {info.salida} </p>
+                    <p className="detalle"> Cupos disponibles: {info.cupos} </p>
                     <p className="detalle-parrafo">Excursiones: {info.excursiones}</p>
                     <p className="detalle-parrafo">Hoteles: {info.hoteles}</p>
                     <p className="detalle-parrafo">Transporte: {info.transporte}</p>
