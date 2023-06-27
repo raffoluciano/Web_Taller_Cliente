@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { PackageCard } from '../components/PackageCard';
 import { getAllPackages } from '../store/slices/package';
-import { getPackage } from '../utils/getdata';
 
 
 export const Packages = () => {
@@ -40,8 +39,8 @@ export const Packages = () => {
     } 
 
     if(isLoading) return (
-        <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
+        <div className='container1'>
+            <span class="loader"></span>
         </div>
     )
 
