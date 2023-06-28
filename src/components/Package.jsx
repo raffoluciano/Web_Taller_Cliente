@@ -27,10 +27,11 @@ const Package = () => {
      
     }, []);
 
-    if(!info){
+    if(!info){ return(
         <div className='container1'>
             <span class="loader"></span>
         </div>
+        )
     }
 
     return(
