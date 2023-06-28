@@ -28,10 +28,10 @@ export const Packages = () => {
             {
                 packagesFilter = packages.filter(pack => pack[filter.category]<=filter.value)
             }
-            /*if (filter.category === 'tipo')
+            if (filter.category === 'tipo')
             {
                 packagesFilter = packages.filter(pack => pack[filter.category]===filter.value)
-            }*/
+            }
 
             if ((packagesFilter.length===0) && (filter.category==='')){
                 setPackageFilter(packages)
@@ -92,6 +92,14 @@ export const Packages = () => {
                                 <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 5 )}}>Hasta 5 dias</li>
                                 <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 7 )}}>Hasta 7 dias</li>
                                 <li className='dropdown-item' onClick={() => {handleSelectClick('duracion', 12 )}}>Hasta 12 dias</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a className="dropdown-item">Tipo</a>
+                            <ul>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('tipo', 'Familiar' )}}>Familiares</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('tipo', 'Estudiantil' )}}>Estudiantiles</li>
+                                <li className='dropdown-item' onClick={() => {handleSelectClick('tipo', 'General' )}}>Generales</li>
                             </ul>
                         </li>
                     </ul>
