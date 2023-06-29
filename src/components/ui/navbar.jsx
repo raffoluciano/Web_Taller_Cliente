@@ -24,14 +24,21 @@ const Navbar = () =>{
       setSearchValue(event.target.value)
      }
 
+     //Funcion que coloca la primer letra mayus a cada palabra
+     const toUpper = (sentence) => {
+      const words = sentence.split(" ");
+      return words.map((word) => { 
+          return word[0].toUpperCase() + word.substring(1); 
+      }).join(" ");
+    }
+
      const handleSearch = async(event) => {
       if (event.key === 'Enter') {
         const currentPath = location.pathname;
         
         if (searchValue === '' || searchValue === null) return 
         
-        const upercaseSearchValue = searchValue.charAt(0).toUpperCase() + searchValue.slice(1);
-        console.log(upercaseSearchValue);
+        const upercaseSearchValue = toUpper(searchValue)
         const isPackagePath = currentPath.includes('packages');
 
         if ( isPackagePath ) {
