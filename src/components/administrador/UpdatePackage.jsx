@@ -25,9 +25,11 @@ const UpdatePackage = ({ data }) => {
   }, [id]);
                   
   if (!formData) {
+    return (
     <div className='container1'>
       <span class="loader"></span>
     </div>
+    )
   }                
                    
   const handleChange = event => {
