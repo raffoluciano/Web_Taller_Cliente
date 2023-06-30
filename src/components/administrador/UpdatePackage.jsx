@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPackageById } from '../../utils/getdata';
 import date from '../../utils/date';
-import updatePackage from '../../utils/updatedate';
+import { updatePackage } from '../../utils/updatedate';
 import React from 'react';
                   
 const UpdatePackage = ({ data }) => {

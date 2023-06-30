@@ -79,7 +79,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
               saveImagePackage(getImageData(imagenes.imagen2)) 
               saveImagePackage(getImageData(imagenes.imagen3)) 
 
-              alert(`El paquete ${formData.id} ha sido agregado con éxito`);
+              alert(`El paquete ${formData.nombre} ha sido agregado con éxito`);
             })
             .catch(error => {
               console.error('Error loading data to the database:', error);
@@ -199,7 +199,3 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
 }
 
 export default AddPackage; 
-//Alerta de agregado
-//<div class="alert alert-success" role="alert">
-//    Agregado con exito!
-//</div>

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const updatePackage = async (id, data) => {
+export const updatePackage = async (id, data) => {
   try {
-    const response = await axios.put(`http://localhost:4000/package/package/${id}`, data, {
+    const response = await axios.put(`http://localhost:4000/package/package/update/${id}`, data, {
       headers: {
         'Content-Type': 'application/json'
       }
@@ -23,7 +23,3 @@ export const updatePackageCupos = async (id, cupos) => {
     throw error; // Lanzar el error para manejarlo en la función llamante
   }
 };
-
-export default {
-  updatePackage,
-}
