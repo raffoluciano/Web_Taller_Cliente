@@ -15,12 +15,13 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
         excursiones: '',
         hoteles: '',
         transporte: '',
+        tipo: '',
     });
 
     const [imagenes, setImagenes] = useState({
         imagen1: null,
         imagen2: null,
-        imagen3: null
+        imagen3: null,
     });
 
     const cargarArchivo = (event) => {
@@ -29,8 +30,6 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
             [event.target.name]: event.target.files
         })
     }
-
-    console.log('imagen',imagenes);
 
     const handleInputChange = event => {
         setFormData({
@@ -41,8 +40,8 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
 
     const getImageData = (imagen) => {
         const formData = new FormData()
-        formData.append(imagen[0].name, imagen)
-
+        //formData.append(imagen[0].name, imagen)
+        formData.append('image',imagen[0], imagen[0].name)
         return formData
     }
 
@@ -60,10 +59,14 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
             "cupos": formData.cupos,
             "excursiones": formData.excursiones,
             "hoteles": formData.hoteles,
-            "transporte": formData.transporte
+            "transporte": formData.transporte,
+            "tipo": formData.tipo,
+            "imagen1": !!imagenes.imagen1 ?  imagenes.imagen1[0].name : '',
+            "imagen2": !!imagenes.imagen2 ?  imagenes.imagen2[0].name : '',
+            "imagen3": !!imagenes.imagen3 ?  imagenes.imagen3[0].name : '',
         }
 
-           if(imagenes[0] === null || imagenes[1] === null, imagenes[2] === null) {
+           if(imagenes.imagen1 === null || imagenes.imagen2 === null, imagenes.imagen3 === null) {
                 console.log('se deben agregar las imagene del paquete')
                 return 
            }
@@ -82,6 +85,8 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
               console.error('Error loading data to the database:', error);
             });
         }
+
+        
     
     return(
         <>
@@ -135,7 +140,11 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                 </div>
                 <div class="col-5">
                     <label for="inputTransps" class="form-label">Transportes</label>
-                    <textarea className="form-control" type='text' value={formData.transportes} onChange={handleInputChange} name="transportes"></textarea>
+                    <textarea className="form-control" type='text' value={formData.transporte} onChange={handleInputChange} name="transporte"></textarea>
+                </div>
+                <div class="col-5">
+                    <label for="inputTipo" class="form-label">Tipo</label>
+                    <textarea className="form-control" type='text' value={formData.tipo} onChange={handleInputChange} name="tipo"></textarea>
                 </div>
                 <div class="col-5 mt-3">
                     <label for="inputTransps" class="form-label">Imagen1 </label>
@@ -175,7 +184,8 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                                 <p> <b> Descripcion: </b> { formData.descripcion }</p>
                                 <p> <b> Excursiones: </b> { formData.excursiones }</p>
                                 <p> <b> Hoteles: </b> { formData.hoteles }</p>      
-                                <p> <b> Transporte: </b> { formData.transporte }</p>                                
+                                <p> <b> Transporte: </b> { formData.transporte }</p>
+                                <p> <b> Tipo: </b> { formData.tipo }</p>                                 
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

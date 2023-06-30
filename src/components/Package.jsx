@@ -28,9 +28,11 @@ const Package = () => {
     }, []);
 
     if(!info){
-        <div className='container1'>
-            <span class="loader"></span>
-        </div>
+        return (
+            <div className='container1'>
+                <span class="loader"></span>
+            </div>
+        )
     }
 
     return(
@@ -47,7 +49,7 @@ const Package = () => {
                         }             
                     </div>
                     <div className="col-4">
-                    <p className="detalle"> {info.nombre} </p>
+                    {/* <p className="detalle"> {info.nombre} </p>
                     <p className="detalle">Destino: {info.destino} </p>
                     <p className="detalle">Duracion: {info.duracion} días</p>
                     <p className="detalle"> Fecha inicio: {date(info.comienzo)}  </p>
@@ -57,7 +59,7 @@ const Package = () => {
                     <p className="detalle-parrafo">Excursiones: {info.excursiones}</p>
                     <p className="detalle-parrafo">Hoteles: {info.hoteles}</p>
                     <p className="detalle-parrafo">Transporte: {info.transporte}</p>
-                    <p className="detalle"><b>Precio: $ {info.precio}</b></p>
+                    <p className="detalle"><b>Precio: $ {info.precio}</b></p> */}
                     <button type="button" className="btn btn-success" onClick={() => { addToCart(info)}}>
                         Comprar
                     </button>

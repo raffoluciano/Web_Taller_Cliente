@@ -127,9 +127,10 @@ const createPlacexexcursion = async(data) => {
     return response.data
 };
 
-const saveImagePackage = async(data) => {
+const saveImagePackage = async(image) => {
     const url = `http://localhost:4000/package/packageImage`
-    const response = await axios.post(url,data);
+    console.log('hola',image)
+    const response = await axios.post(url,image);
     return response.data
 }
 
