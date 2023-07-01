@@ -6,12 +6,7 @@ export const CartContext = createContext();
 export const CartProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
 
-/*  const addToCart = (item) => {
-    setCartItems([...cartItems, item]);
-    alert('Producto agregado correctamente al carrito')
-  };
-*/
-
+  
 const addToCart = async (item) => {
   
   console.log(item.id)

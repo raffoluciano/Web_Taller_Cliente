@@ -63,115 +63,12 @@ const AppRouter = () => {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register/>}/>
-        {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
-        
         <Route path="*" element={<Home />} />
       </Routes> 
 
       <Footer/>
     </>
   )
-
-    // return (
-    //   <>
-    //     {
-    //       (status === 'authenticated')
-    //       ? (
-    //           <div className="AppRouter">
-    //             <Navbar/>
-
-    //             <Routes>
-    //               <Route path="/home" element={<Home />}/>
-    //               <Route path="/packages" element={<Packages />}/>
-    //               <Route path="/package/:id" element={<Package />}/>
-    //               <Route path="/contact" element={<Contact />}/>
-    //               <Route path="/cart" element={<Cart />}/>
-    //               <Route path="/login" element={<Login />}/>
-    //               {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
-    //               <Route path="/delete/:id" element={<DeletePackage />}/>
-    //               <Route path="*" element={<Home />} />
-    //             </Routes> 
-
-    //             <Footer/>
-    //         </div>
-    //       )
-    //       : ( <div>
-
-    //         <Navbar/>
-    //         <Routes>
-    //               <Route path="/home" element={<Home />}/>
-    //                 <Route path="/packages" element={<Packages />}/>
-    //                 <Route path="/package/:id" element={<Package />}/>
-    //                 <Route path="/contact" element={<Contact />}/>
-    //                 <Route path="/cart" element={<Cart />}/>
-    //                 <Route path="/login" element={<Login />}/>
-    //                 {/* <Route path="/HomeAdm" element={<HomeAdm />}/> */}
-    //                 <Route path="/delete/:id" element={<DeletePackage />}/>
-    //                 <Route path="*" element={<Home />} />
-    //             </Routes>  
-    //             <Footer/> 
-    //       </div>
-              
-    //       )
-    //     }
-
-    //   </>
-    // );
-
-//     return (<div className="AppRouter">
-//             <Navbar/>
-
-//             <Routes>
-//               <Route path="/home" element={<Home />}/>
-//               <Route path="/packages" element={<Packages />}/>
-//               <Route path="/package/:id" element={<Package />}/>
-//               <Route path="/contact" element={<Contact />}/>
-//               <Route path="/cart" element={<Cart />}/>
-//               <Route path="/login" element={<Login />}/>
-//               <Route path="/register" element={<Register />}/>
-//               <Route path="/add" element={<AddPackage />} />
-//               <Route path="/update/:id" element={<UpdatePackage />} />
-//               <Route path="/HomeAdm" element={<HomeAdm />}/>
-//               <Route path="/delete/:id" element={<DeletePackage />}/>
-//               <Route path="*" element={<Home />} />
-//             </Routes> 
-
-//             <Footer/>
-//         </div>
-//         );
 }
 
 export default AppRouter;
-
-
-//EJ PARA PROBAR TRAE LOS DATOS DE LAS FUNCIONES SIN PASAR PARAMETROS
-/*
-const [users, setUsers] = useState([]);
-  useEffect(() => {
-    [nombre de la funcion]().then(us => setUsers(us));
-  },[])
-
-  Lo de abajo queda igual
-*/
-
-//EJ PARA PROBAR SI TRAE LOS DATOS DE LAS FUNCIONES QUE RECIBEN UN PARAMETRO ID
-
-
-  // const id = 1
-  // const [users, setUsers] = useState([]);
-
-  // useEffect(() => {
-  //   const consultarApi = async() => {
-  //     setUsers (await getPackageById(id));
-  //   }
-  //   consultarApi();
-  // },[])
-
-
-  // <ul>
-  //         {
-  //           users.map(user => (
-  //             <li key={user.id}>{user.descripcion}</li>) //cambiar el campo dni a id, y el otro que se quiera mostrar p/prueba
-  //           )
-  //         }
-  // </ul>

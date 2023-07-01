@@ -26,19 +26,6 @@ const Login = () => {
     e.preventDefault();
     //console.log({...formData})
     dispatch(startLoginWithEmailPassword({...formData}));
-    // try {
-    //   const response = await axios.post('http://localhost:4000/user/login', formData);
-    //   console.log(response.data);
-    //   const role = response.data.rol;
-    //   if (role === 'cliente') {
-    //     window.location.href = '/home';
-    //   } else if (role === 'administrador') {
-    //     window.location.href = '/homeadm';
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    //   setError(error.response.data.mensaje);
-    // }
   };
 
   const onLogignWithGoogle = () => {
@@ -67,7 +54,6 @@ const Login = () => {
           </form>
         </div>
         <p className="para-2">
-         {/* No tienes cuenta? <Link to={`/register`}>Registrate aquí</Link> */}
         </p>
       </div>
     </div>

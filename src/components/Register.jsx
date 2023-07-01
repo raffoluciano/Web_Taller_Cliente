@@ -28,14 +28,6 @@ const handleSubmit = event => {
       "contraseña": formData.contraseña,
       "dni": formData.dni
    }
-    // createUser(myFormatedData)
-    //   .then(formData => {
-    //     console.log('Data has been loaded to the database:', formData);
-    //     alert(`El usuario ${formData.nombre} ha sido creado con éxito`);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error loading data to the database:', error);
-    //   });
     dispatch(startCreatingUserWithEmailPassword({email: formData.email, password:formData.contraseña }));
   }
   return (

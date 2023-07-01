@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getPackageById } from '../../utils/getdata';
 import date from '../../utils/date';
-import { deletePackage } from '../../utils/deletedata';
+import deletePackage from '../../utils/deletedata';
 import { Link } from 'react-router-dom';
 
 const DeletePackage = () => {

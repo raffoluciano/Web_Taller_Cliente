@@ -78,13 +78,6 @@ const Cart = () => {
                     <h4><b>Total de compra: ${getTotalPrice()}</b></h4>
                     </div>
                     <div>
-                        {/* <button type="button" className="btn btn-success">Finalizar compra</button> */}
-                        {/* <CardPayment
-                            initialization={{ amount: 10 }}
-                            onSubmit={async (param) => {
-                                console.log(param);
-                            }}
-                        /> */}
                         <Payment
                             initialization={initialization}
                             customization={customization}
@@ -92,13 +85,6 @@ const Cart = () => {
                                 console.log(param);
                             }}
                         />
-                        
-                        {/* <Wallet
-                            initialization={{
-                                preferenceId: '239656545-89accc4d-3fc9-4835-828b-b8fa16b2fdce',
-                                redirectMode: 'modal',
-                            }}
-                        />; */}
                         
                     </div>
                 </div>
