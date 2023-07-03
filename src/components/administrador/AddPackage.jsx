@@ -107,11 +107,11 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                     <input class="form-control" type='text' value={formData.precio} onChange={handleInputChange} name="precio"/>
                 </div>
                 <div class="col-5">
-                    <label for="inputInit" class="form-label">Comienzo</label>
+                    <label for="inputInit" class="form-label">Comienzo (DD-MM-AAAA)</label>
                     <input class="form-control" type='text' value={formData.comienzo} onChange={handleInputChange} name="comienzo"/>
                 </div>
                 <div class="col-5">
-                    <label for="inputEnd" class="form-label">Fin</label>
+                    <label for="inputEnd" class="form-label">Fin (DD-MM-AAAA)</label>
                     <input class="form-control" type='text' value={formData.fin} onChange={handleInputChange} name="fin"/>
                 </div>
                 <div class="col-5">
@@ -188,7 +188,7 @@ const AddPackage = ({ nombre, cupos, precio, salida, comienzo, duracion, fin, id
                                 <p> <b> Tipo: </b> { formData.tipo }</p>                                 
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
