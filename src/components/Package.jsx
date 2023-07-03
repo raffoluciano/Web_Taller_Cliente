@@ -59,6 +59,7 @@ const Package = () => {
                     <p className="detalle-parrafo">Excursiones: {info.excursiones}</p>
                     <p className="detalle-parrafo">Hoteles: {info.hoteles}</p>
                     <p className="detalle-parrafo">Transporte: {info.transporte}</p>
+                    <p className="detalle">Tipo: {info.tipo}</p>
                     <p className="detalle"><b>Precio: $ {info.precio}</b></p>
                     <button type="button" className="btn btn-success" onClick={() => { addToCart(info)}}>
                         Comprar

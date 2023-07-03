@@ -83,6 +83,8 @@ const UpdatePackage = ({ data }) => {
             <input className="form-control" type="text" value={formData.hoteles} name="hoteles" onChange={handleChange}/>
             <label htmlFor="inputTransp" className="form-label">Transporte</label>
             <input className="form-control" type="text" value={formData.transporte} name="transporte" onChange={handleChange}/>
+            <label htmlFor="inputTipo" className="form-label">Tipo</label>
+            <input className="form-control" type="text" value={formData.tipo} name="tipo" onChange={handleChange}/>
             <label htmlFor="inputExcursions" className="form-label">Precio</label>
             <input className="form-control" type="text" value={formData.precio} name="precio" onChange={handleChange}/>
             <button onClick={handleSubmit} className="btn btn-success">Actualizar</button>
