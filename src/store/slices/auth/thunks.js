@@ -2,7 +2,7 @@ import { loginWithEmailPassword, logoutFirebase, registerUserWithEmailPassword, 
 import { getRoleUserByEmail } from "../../../utils/getdata";
 import { checkingCredentials, login, logout } from "./authSlice";
 
-//controla la autentificasion del login 
+//controla la autentificacion del login 
 
 export const checkingAuthentication = () => {
     return async( dispatch ) => {

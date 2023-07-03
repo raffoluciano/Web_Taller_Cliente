@@ -58,7 +58,7 @@ export const Packages = () => {
     )
 
     if (packages.length === 0) return (
-        <div className="alert alert-warning mt-2" role="alert">
+        <div className="alert alert-info" role="alert">
             No se encontro ningun paquete
         </div>
     )
